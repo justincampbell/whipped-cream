@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'whipped/cream/version'
+require 'whipped-cream/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "whipped-cream"
-  spec.version       = Whipped::Cream::VERSION
+  spec.version       = WhippedCream::VERSION
   spec.authors       = ["Justin Campbell"]
   spec.email         = ["justin@justincampbell.me"]
   spec.description   = %q{TODO: Write a gem description}

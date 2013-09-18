@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Whipped::Cream do
+describe WhippedCream do
   it 'should have a version number' do
-    Whipped::Cream::VERSION.should_not be_nil
+    WhippedCream::VERSION.should_not be_nil
   end
 
   it 'should do something useful' do
