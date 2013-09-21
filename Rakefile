@@ -1,6 +1,10 @@
 require "bundler/gem_tasks"
-require "rspec/core/rake_task"
+require 'cane/rake_task'
+require 'rspec/core/rake_task'
 
-RSpec::Core::RakeTask.new(:spec)
+task default: :ci
 
-task :default => :spec
+task ci: [:spec, :cane]
+
+Cane::RakeTask.new
+RSpec::Core::RakeTask.new

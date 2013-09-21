@@ -1,5 +1,3 @@
-require "whipped-cream/version"
+module WhippedCream; end
 
-module WhippedCream
-  # Your code goes here...
-end
+require "whipped-cream/version"
