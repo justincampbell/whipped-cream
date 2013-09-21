@@ -1,11 +1,7 @@
 require 'spec_helper'
 
 describe WhippedCream do
-  it 'should have a version number' do
-    WhippedCream::VERSION.should_not be_nil
-  end
-
-  it 'should do something useful' do
-    false.should be_true
+  it "should have a version number" do
+    expect(WhippedCream::VERSION).to_not be_empty
   end
 end
