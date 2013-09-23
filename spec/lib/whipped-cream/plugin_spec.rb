@@ -12,8 +12,10 @@ describe WhippedCream::Plugin do
   context "with helper methods" do
     subject {
       described_class.build do
-        def foo
-          :bar
+        helpers do
+          def foo
+            :bar
+          end
         end
       end
     }
