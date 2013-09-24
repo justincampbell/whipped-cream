@@ -35,4 +35,8 @@ class WhippedCream::Builder
   def name(string)
     plugin.name = string
   end
+
+  def sensor(name, options = {}, &block)
+    plugin.sensors << { name: name, block: block }.merge(options)
+  end
 end
