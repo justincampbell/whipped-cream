@@ -1,29 +1,33 @@
-# Whipped::Cream
+# whipped-cream
 
-TODO: Write a gem description
+## DSL
 
-## Installation
+```rb
+name "Garage"
 
-Add this line to your application's Gemfile:
+camera
 
-    gem 'whipped-cream'
+button "Open/Close", pin: 1 do
+  tap
+end
 
-And then execute:
+sensor "Door",
+  pin: 2,
+  low: "Closed",
+  high: "Open",
+  on_high: :door_opened
 
-    $ bundle
+sensor "Temperature", pin: 3, unit: "F" do
+  binary_to_farenheit(value)
+end
 
-Or install it yourself as:
+helpers do
+  def binary_to_farenheit(binary)
+    binary.to_f * 123.45
+  end
 
-    $ gem install whipped-cream
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+  def door_opened
+    WhippedCream.find("Front Door").ring_bell
+  end
+end
+```
