@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe WhippedCream::Plugin do
+describe WhippedCream::Builder do
   subject { plugin }
 
   let(:plugin) {
@@ -8,6 +8,10 @@ describe WhippedCream::Plugin do
       name "Garage"
     end
   }
+
+  it "returns a plugin" do
+    should be_a(WhippedCream::Plugin)
+  end
 
   context "with helper methods" do
     subject {
