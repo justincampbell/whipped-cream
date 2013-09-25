@@ -64,10 +64,10 @@ describe WhippedCream::Builder do
 
         button = plugin.buttons.first
 
-        expect(button[:name]).to eq("Open/Close")
-        expect(button[:pin]).to eq(1)
+        expect(button.name).to eq("Open/Close")
+        expect(button.pin).to eq(1)
 
-        expect(button[:block].call).to eq(:tap)
+        expect(button.block.call).to eq(:tap)
       end
     end
   end

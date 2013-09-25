@@ -20,8 +20,8 @@ class WhippedCream::Builder
     @plugin ||= WhippedCream::Plugin.new
   end
 
-  def button(name, options = {}, &block)
-    plugin.buttons << { name: name, block: block }.merge(options)
+  def button(name, pin: nil, &block)
+    plugin.buttons << WhippedCream::Button.new(name, pin: pin, block: block)
   end
 
   def camera
