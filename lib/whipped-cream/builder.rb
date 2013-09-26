@@ -21,7 +21,7 @@ class WhippedCream::Builder
   end
 
   def button(name, pin: nil, &block)
-    plugin.buttons << WhippedCream::Button.new(name, pin: pin, block: block)
+    plugin.controls << WhippedCream::Button.new(name, pin: pin, block: block)
   end
 
   def camera
@@ -37,6 +37,6 @@ class WhippedCream::Builder
   end
 
   def sensor(name, options = {}, &block)
-    plugin.sensors << { name: name, block: block }.merge(options)
+    plugin.controls << WhippedCream::Sensor.new(name, options, &block)
   end
 end

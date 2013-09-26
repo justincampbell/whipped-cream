@@ -6,19 +6,23 @@ class WhippedCream::Plugin
     WhippedCream::Builder.build(&block)
   end
 
+  def controls
+    @controls ||= []
+  end
+
   def buttons
-    @buttons ||= []
+    controls.select { |control| control.is_a? WhippedCream::Button }
   end
 
   def fields
-    @fields ||= []
+    controls.select { |control| control.is_a? WhippedCream::Field }
   end
 
   def sensors
-    @sensors ||= []
+    controls.select { |control| control.is_a? WhippedCream::Sensor }
   end
 
   def switches
-    @switches ||= []
+    controls.select { |control| control.is_a? WhippedCream::Switch }
   end
 end

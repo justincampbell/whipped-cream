@@ -45,7 +45,7 @@ describe WhippedCream::Builder do
     end
   end
 
-  describe "#button(s)" do
+  describe "#button" do
     subject { plugin.buttons }
 
     it { should be_empty }
@@ -66,8 +66,6 @@ describe WhippedCream::Builder do
 
         expect(button.name).to eq("Open/Close")
         expect(button.pin).to eq(1)
-
-        expect(button.block.call).to eq(:tap)
       end
     end
   end
@@ -93,12 +91,12 @@ describe WhippedCream::Builder do
 
         sensor = plugin.sensors.first
 
-        expect(sensor[:name]).to eq("Door")
-        expect(sensor[:pin]).to eq(2)
-        expect(sensor[:low]).to eq("Closed")
-        expect(sensor[:high]).to eq("Open")
-        expect(sensor[:on_high]).to eq(:door_opened)
-        expect(sensor[:block]).to be_nil
+        expect(sensor.name).to eq("Door")
+        expect(sensor.pin).to eq(2)
+        expect(sensor.low).to eq("Closed")
+        expect(sensor.high).to eq("Open")
+        expect(sensor.on_high).to eq(:door_opened)
+        expect(sensor.block).to be_nil
       end
     end
   end
