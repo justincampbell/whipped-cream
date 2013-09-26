@@ -1,3 +1,4 @@
+require "whipped-cream/api"
 require "whipped-cream/builder"
 require "whipped-cream/button"
 require "whipped-cream/plugin"
