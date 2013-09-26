@@ -1,3 +1,5 @@
+require 'whipped-cream/control'
+
 module WhippedCream
   # A Sensor displays the state of something, such as a pin's value, or the
   # return value of the method. Sensors can also have callbacks associated with

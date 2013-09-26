@@ -1,3 +1,5 @@
+require 'whipped-cream/control'
+
 module WhippedCream
   # A Button represents a one-time action, such as momentarily turning on a
   # pin, or sending a message to an object
@@ -8,10 +10,6 @@ module WhippedCream
       @name = name
       @pin = pin
       @block = block
-    end
-
-    def id
-      name.downcase.gsub(/[^\w]+/, '_').gsub(/^_|_$/, '').to_sym
     end
   end
 end
