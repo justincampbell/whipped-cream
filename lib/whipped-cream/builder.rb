@@ -7,14 +7,29 @@ module WhippedCream
       builder.plugin
     end
 
-    attr_reader :block
+    def self.from_file(path)
+      contents = File.read(path)
 
-    def initialize(&block)
+      from_string(contents)
+    end
+
+    def self.from_string(string)
+      builder = new(string)
+      builder.build
+      builder.plugin
+    end
+
+    attr_reader :block, :string
+
+    def initialize(string = nil, &block)
       @block = block
+      @string = string
     end
 
     def build
-      @build ||= instance_eval(&block)
+      @build ||= string ?
+        instance_eval(string) :
+        instance_eval(&block)
     end
 
     def plugin

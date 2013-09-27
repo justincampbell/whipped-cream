@@ -8,6 +8,14 @@ describe WhippedCream::Builder do
       name "Garage"
     end
   }
+  let(:plugin_file_path) { "foo/bar/baz" }
+  let(:plugin_string) {
+    <<-PLUGIN
+        name "Garage"
+
+        button "Open/Close", pin: 1
+    PLUGIN
+  }
 
   it "returns a plugin" do
     should be_a(WhippedCream::Plugin)
@@ -26,6 +34,34 @@ describe WhippedCream::Builder do
 
     it "defines the methods on the object" do
       expect(subject.foo).to eq(:bar)
+    end
+  end
+
+  describe ".from_file" do
+    before do
+      File.stub read: plugin_string
+    end
+
+    it "reads the file" do
+      expect(File).to receive(:read).with(plugin_file_path)
+
+      described_class.from_file plugin_file_path
+    end
+
+    it "parses the contents" do
+      plugin = described_class.from_file(plugin_file_path)
+
+      expect(plugin.name).to eq("Garage")
+      expect(plugin.controls.first.name).to eq("Open/Close")
+    end
+  end
+
+  describe ".from_string" do
+    it "parses the string" do
+      plugin = described_class.from_string(plugin_string)
+
+      expect(plugin.name).to eq("Garage")
+      expect(plugin.controls.first.name).to eq("Open/Close")
     end
   end
 
