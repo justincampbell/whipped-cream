@@ -7,6 +7,14 @@ module WhippedCream
       Builder.build(&block)
     end
 
+    def self.from_file(path)
+      Builder.from_file(path)
+    end
+
+    def self.from_string(string)
+      Builder.from_string(string)
+    end
+
     def controls
       @controls ||= []
     end

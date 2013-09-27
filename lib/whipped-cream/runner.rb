@@ -7,6 +7,14 @@ end
 module WhippedCream
   # Actor that manages all interaction with a plugin
   class Runner
+    def self.instance
+      @instance
+    end
+
+    def self.create_instance(plugin)
+      @instance = new(plugin)
+    end
+
     attr_reader :plugin
 
     def initialize(plugin)
