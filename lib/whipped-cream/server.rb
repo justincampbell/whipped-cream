@@ -1,5 +1,5 @@
 module WhippedCream
-  class API
+  class Server
     attr_reader :plugin
 
     def initialize(plugin)
