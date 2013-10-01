@@ -3,3 +3,5 @@
 $LOAD_PATH << File.expand_path('../../lib', __FILE__)
 
 require 'whipped-cream'
+
+WhippedCream::CLI.start
