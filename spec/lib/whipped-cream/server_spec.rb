@@ -16,7 +16,7 @@ describe WhippedCream::Server do
   it "creates a runner with the plugin" do
     server.runner.stub :sleep
 
-    expect(server.runner.open_close).to be_nil
+    server.runner.open_close
   end
 
   it "reuses the same runner" do

@@ -47,9 +47,6 @@ module WhippedCream
     def build_button_routes
       plugin.buttons.each do |button|
         web.get "/#{button.id}" do
-          p :request, request
-          p :runner, runner
-          p :button, button
           runner.send(button.id)
         end
       end
