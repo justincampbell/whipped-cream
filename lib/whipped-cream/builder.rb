@@ -36,8 +36,9 @@ module WhippedCream
       @plugin ||= Plugin.new
     end
 
-    def button(name, pin: nil, &block)
-      plugin.controls << Button.new(name, pin: pin, block: block)
+    def button(name, options = {}, &block)
+      options = options.merge({ block: block })
+      plugin.controls << Button.new(name, options)
     end
 
     def camera

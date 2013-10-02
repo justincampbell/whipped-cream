@@ -6,10 +6,10 @@ module WhippedCream
   class Button < Control
     attr_reader :name, :pin, :block
 
-    def initialize(name, pin: nil, block: nil)
+    def initialize(name, options = {})
       @name = name
-      @pin = pin
-      @block = block
+      @pin = options[:pin]
+      @block = options[:block]
     end
   end
 end
