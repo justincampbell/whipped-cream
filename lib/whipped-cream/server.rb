@@ -52,6 +52,8 @@ module WhippedCream
       end
     end
 
+    # A Sinatra application skeleton that is used to build up the web server
+    # for this plugin.
     class Web < Sinatra::Application
       def runner
         Runner.instance

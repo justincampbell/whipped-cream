@@ -39,12 +39,7 @@ module WhippedCream
 
     def configure_buttons
       plugin.buttons.each do |button|
-        options = {
-          pin: button.pin,
-          direction: :out
-        }
-
-        pins[button.id] = PiPiper::Pin.new(options)
+        create_pin button, direction: :out
 
         define_singleton_method button.id do
           pin = pins[button.id]
@@ -54,6 +49,12 @@ module WhippedCream
           pin.off
         end
       end
+    end
+
+    def create_pin(control, options = {})
+      options[:pin] = control.pin
+
+      pins[control.id] = PiPiper::Pin.new(options)
     end
   end
 end

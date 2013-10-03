@@ -1,6 +1,8 @@
 require 'thor'
 
 module WhippedCream
+  # The CLI gets invoked from the binary, and encapsulates all user interaction
+  # logic
   class CLI < Thor
     default_task :usage
 
