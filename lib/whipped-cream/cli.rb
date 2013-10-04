@@ -24,7 +24,7 @@ module WhippedCream
       server = Server.new(plugin)
     end
 
-    desc "PLUGIN", "Start a plugin"
+    desc "start PLUGIN", "Start a plugin"
     def start(plugin_name)
       plugin_path = resolve_plugin(plugin_name)
 
