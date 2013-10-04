@@ -12,13 +12,17 @@ module PiPiper
     def on
       @value = :on
 
-      p self
+      log "Pin #{pin} on"
     end
 
     def off
       @value = :off
 
-      p self
+      log "Pin #{pin} off"
+    end
+
+    def log(message)
+      puts message unless ENV['RUBY_ENV'] == 'test'
     end
   end
 end
