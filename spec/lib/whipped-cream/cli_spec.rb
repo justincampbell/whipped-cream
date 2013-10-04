@@ -25,6 +25,14 @@ describe WhippedCream::CLI do
     FileUtils.rm_rf tmpdir
   end
 
+  describe "#demo" do
+    it "launches a web server with an example plugin" do
+      expect(WhippedCream::Server).to receive(:new)
+
+      cli.demo
+    end
+  end
+
   describe "#usage" do
     it "displays a banner and help" do
       expect(cli).to receive(:puts).exactly(2).times

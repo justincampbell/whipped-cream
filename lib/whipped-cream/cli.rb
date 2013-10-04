@@ -18,6 +18,12 @@ module WhippedCream
       help
     end
 
+    desc "demo", "Start the demo plugin"
+    def demo
+      plugin = Plugin.from_file(File.expand_path('../../../demo.rb', __FILE__))
+      server = Server.new(plugin)
+    end
+
     desc "PLUGIN", "Start a plugin"
     def start(plugin_name)
       plugin_path = resolve_plugin(plugin_name)
