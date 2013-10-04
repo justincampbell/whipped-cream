@@ -48,6 +48,7 @@ module WhippedCream
       plugin.buttons.each do |button|
         web.get "/#{button.id}" do
           runner.send(button.id)
+          redirect to('/')
         end
       end
     end
@@ -55,8 +56,22 @@ module WhippedCream
     # A Sinatra application skeleton that is used to build up the web server
     # for this plugin.
     class Web < Sinatra::Application
+      get '/' do
+        erb :index
+      end
+
+      private
+
+      def controls
+        runner.plugin.controls
+      end
+
       def runner
         Runner.instance
+      end
+
+      def title
+        runner.name
       end
     end
   end

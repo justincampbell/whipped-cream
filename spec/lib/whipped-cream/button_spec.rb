@@ -9,4 +9,5 @@ describe WhippedCream::Button do
 
   its(:name) { should eq(name) }
   its(:id) { should eq(:open_close) }
+  its(:type) { should eq(:button) }
 end

@@ -28,7 +28,9 @@ describe WhippedCream::Server do
   end
 
   it "builds up a Sinatra application from a plugin" do
-    expect(server.web.routes['GET'].first.first).to match('/open_close')
+    expect(
+      server.web.routes['GET'].find { |route| route.first.match('/open_close') }
+    ).to be_true
   end
 
   it "starts the Sinatra application" do

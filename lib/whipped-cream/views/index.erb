@@ -1,0 +1,4 @@
+<% controls.each do |control| %>
+  <%= erb control.type, locals: { control: control } %>
+  <hr />
+<% end %>
