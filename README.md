@@ -1,4 +1,6 @@
-# whipped-cream
+# ![Whipped Cream logo](header.png)
+
+> HTTP topping for [Raspberry Pi](http://www.raspberrypi.org)
 
 ## DSL
 
