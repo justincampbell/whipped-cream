@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/justincampbell/whipped-cream'
   spec.license       = 'MIT'
 
-  gem.post_install_message = File.read('WELCOME')
+  spec.post_install_message = File.read('WELCOME')
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
