@@ -48,6 +48,7 @@ module WhippedCream
       plugin.buttons.each do |button|
         web.get "/#{button.id}" do
           runner.send(button.id)
+          redirect to('/')
         end
       end
     end
