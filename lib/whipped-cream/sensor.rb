@@ -7,7 +7,7 @@ module WhippedCream
   class Sensor < Control
     attr_reader :name, :pin, :low, :high, :on_low, :on_high, :block
 
-    def initialize(name, options, &block)
+    def initialize(name, options = {}, &block)
       @name = name
       @pin = options[:pin]
       @low = options[:low]

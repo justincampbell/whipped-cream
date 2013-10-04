@@ -36,4 +36,45 @@ describe WhippedCream::Runner do
       runner.open_close
     end
   end
+
+  context "with a sensor" do
+    let(:plugin) {
+      WhippedCream::Plugin.build do
+        sensor "Door", pin: 2, low: "Open", high: "Closed"
+      end
+    }
+
+    it "sets up that pin with direction: :in" do
+      pin = runner.pins[:door]
+
+      expect(pin).to be_a(PiPiper::Pin)
+      expect(pin.pin).to eq(2)
+      expect(pin.direction).to eq(:in)
+    end
+
+    it "defines a method that reads and converts the pin's value" do
+      pin = runner.pins[:door]
+      pin.stub value: 1
+
+      expect(runner.door).to eq("Closed")
+    end
+
+    context "with a block and no pin" do
+      let(:plugin) {
+        WhippedCream::Plugin.build do
+          sensor "Foo" do
+            "Bar"
+          end
+        end
+      }
+
+      it "does not set up a pin" do
+        expect(runner.pins[:door]).to be_nil
+      end
+
+      it "defines a method that calls the block" do
+        expect(runner.foo).to eq("Bar")
+      end
+    end
+  end
 end
