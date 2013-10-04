@@ -35,6 +35,7 @@ module WhippedCream
 
     def start
       configure_buttons
+      configure_sensors
     end
 
     def configure_buttons
@@ -51,7 +52,25 @@ module WhippedCream
       end
     end
 
+    def configure_sensors
+      plugin.sensors.each do |sensor|
+        create_pin sensor, direction: :in
+
+        define_singleton_method sensor.id do
+          if sensor.pin
+            pin = pins[sensor.id]
+
+            pin.value == 1 ? sensor.high : sensor.low
+          else
+            sensor.block.call
+          end
+        end
+      end
+    end
+
     def create_pin(control, options = {})
+      return unless control.pin
+
       options[:pin] = control.pin
 
       pins[control.id] = PiPiper::Pin.new(options)

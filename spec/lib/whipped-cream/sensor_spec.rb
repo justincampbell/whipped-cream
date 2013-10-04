@@ -1,23 +1,27 @@
 require 'spec_helper'
 
 describe WhippedCream::Sensor do
-  subject(:sensor) {
-    described_class.new(name, pin: pin, low: low, high: high, on_high: on_high)
-  }
+  subject(:sensor) { described_class.new(name, options, &block) }
 
   let(:name) { "Door" }
-  let(:pin) { 2 }
-  let(:low) { "Closed" }
-  let(:high) { "Open" }
-  let(:on_low) { nil }
-  let(:on_high) { :door_opened }
+  let(:options) {
+    {
+      pin: 2,
+      high: "Open",
+      low: "Closed",
+      on_high: :door_opened
+    }
+  }
+  let(:block) { nil }
 
   its(:name) { should eq(name) }
-  its(:pin) { should eq(pin) }
-  its(:low) { should eq(low) }
-  its(:high) { should eq(high) }
-  its(:on_low) { should eq(on_low) }
-  its(:on_high) { should eq(on_high) }
-
   its(:id) { should eq(:door) }
+
+  its(:pin) { should eq(2) }
+
+  its(:high) { should eq("Open") }
+  its(:low) { should eq("Closed") }
+
+  its(:on_high) { should eq(:door_opened) }
+  its(:on_low) { should be_nil }
 end
