@@ -7,7 +7,9 @@ module WhippedCream
 
     def initialize(plugin)
       @plugin = plugin
+    end
 
+    def start
       ensure_routes_built
       ensure_runner_started
 

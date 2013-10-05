@@ -27,7 +27,7 @@ describe WhippedCream::CLI do
 
   describe "#demo" do
     it "launches a web server with an example plugin" do
-      expect(WhippedCream::Server).to receive(:new)
+      expect(Rack::Server).to receive(:start)
 
       cli.demo
     end
@@ -43,12 +43,8 @@ describe WhippedCream::CLI do
   end
 
   describe "#start" do
-    before do
-      Rack::Server.stub :start
-    end
-
     it "starts a server for the plugin" do
-      expect(WhippedCream::Server).to receive(:new)
+      expect(Rack::Server).to receive(:start)
 
       cli.start(plugin_filename)
     end
