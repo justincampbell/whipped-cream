@@ -37,9 +37,6 @@ module WhippedCream
         which ruby ||
           time sudo apt-get install ruby -y
 
-        which runit ||
-          time sudo apt-get install runit -y
-
         which whipped-cream ||
           time sudo gem install whipped-cream --no-ri --no-rdoc --pre
 
