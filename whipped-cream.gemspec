@@ -22,6 +22,8 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 1.9.3'
 
+  spec.add_runtime_dependency 'net-scp'
+  spec.add_runtime_dependency 'net-ssh'
   spec.add_runtime_dependency 'pi_piper'
   spec.add_runtime_dependency 'sinatra'
   spec.add_runtime_dependency 'thor'

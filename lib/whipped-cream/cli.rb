@@ -25,13 +25,24 @@ module WhippedCream
       server.start
     end
 
+    desc "deploy PLUGIN IP", "Deploy a plugin to a Pi"
+    def deploy(plugin_name, pi_address)
+      plugin_path = resolve_plugin(plugin_name)
+
+      deployer = Deployer.new(plugin_path, pi_address)
+      deployer.deploy
+    end
+
     desc "start PLUGIN", "Start a plugin"
+    method_option :daemonize,
+      type: :boolean,
+      desc: "Run the server in the background"
     def start(plugin_name)
       plugin_path = resolve_plugin(plugin_name)
 
       plugin = Plugin.from_file(plugin_path)
       server = Server.new(plugin)
-      server.start
+      server.start(options)
     end
 
     no_tasks do
