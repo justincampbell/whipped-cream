@@ -43,10 +43,23 @@ describe WhippedCream::CLI do
   end
 
   describe "#start" do
+    let(:server_double) { double(WhippedCream::Server) }
+
     it "starts a server for the plugin" do
-      expect(Rack::Server).to receive(:start)
+      expect(WhippedCream::Server).to receive(:new) { server_double }
+      expect(server_double).to receive(:start)
 
       cli.start(plugin_filename)
+    end
+
+    context "with --daemonize" do
+      it "starts a server in the background" do
+        expect(WhippedCream::Server).to receive(:new) { server_double }
+        expect(server_double).to receive(:start).with(daemonize: true)
+
+        cli.options = { daemonize: true }
+        cli.start(plugin_filename)
+      end
     end
   end
 end

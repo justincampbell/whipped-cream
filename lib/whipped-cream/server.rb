@@ -9,11 +9,11 @@ module WhippedCream
       @plugin = plugin
     end
 
-    def start
+    def start(options = {})
       ensure_routes_built
       ensure_runner_started
 
-      start_web
+      start_web(options)
     end
 
     def runner
@@ -38,8 +38,10 @@ module WhippedCream
       @routes_built ||= build_routes || true
     end
 
-    def start_web
-      Rack::Server.start app: web, port: port
+    def start_web(options = {})
+      options = options.merge({ app: web, port: port })
+
+      Rack::Server.start options
     end
 
     def build_routes
