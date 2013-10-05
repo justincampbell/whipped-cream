@@ -20,7 +20,7 @@ module WhippedCream
     def initialize(plugin)
       @plugin = plugin
 
-      start
+      configure
     end
 
     def name
@@ -33,7 +33,7 @@ module WhippedCream
 
     private
 
-    def start
+    def configure
       configure_buttons
       configure_sensors
     end
