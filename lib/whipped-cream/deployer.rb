@@ -60,6 +60,7 @@ module WhippedCream
     end
 
     def scp_copy(local, remote)
+      puts "Copying #{local} to pi@#{pi_address}:#{remote}"
       scp.upload! local, remote
     end
 
