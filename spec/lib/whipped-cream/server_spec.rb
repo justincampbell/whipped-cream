@@ -31,9 +31,23 @@ describe WhippedCream::Server do
     ).to be_true
   end
 
-  it "starts the Sinatra application" do
-    expect(Rack::Server).to receive(:start)
+  describe "#start" do
+    it "starts a Rack server" do
+      expect(Rack::Server).to receive(:start).with(
+        app: WhippedCream::Server::Web, port: 8080
+      )
 
-    server.start
+      server.start
+    end
+
+    context "with daemonize: true" do
+      it "starts the Sinatra application" do
+        expect(Rack::Server).to receive(:start).with(
+          app: WhippedCream::Server::Web, port: 8080, daemonize: true
+        )
+
+        server.start(daemonize: true)
+      end
+    end
   end
 end
