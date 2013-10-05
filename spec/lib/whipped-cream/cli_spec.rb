@@ -15,6 +15,7 @@ describe WhippedCream::CLI do
         button "Open/Close", pin: 1
     PLUGIN
   }
+  let(:pi_address) { "192.168.0.123" }
   let(:tmpdir) { Dir.mktmpdir }
 
   before do
@@ -33,12 +34,14 @@ describe WhippedCream::CLI do
     end
   end
 
-  describe "#usage" do
-    it "displays a banner and help" do
-      expect(cli).to receive(:puts).exactly(2).times
-      expect(cli).to receive(:help)
+  describe "#deploy" do
+    it "deploys a plugin to a Pi" do
+      deployer_double = double(WhippedCream::Deployer)
 
-      cli.usage
+      expect(WhippedCream::Deployer).to receive(:new) { deployer_double }
+      expect(deployer_double).to receive(:deploy)
+
+      cli.deploy(plugin_filename, pi_address)
     end
   end
 
@@ -60,6 +63,15 @@ describe WhippedCream::CLI do
         cli.options = { daemonize: true }
         cli.start(plugin_filename)
       end
+    end
+  end
+
+  describe "#usage" do
+    it "displays a banner and help" do
+      expect(cli).to receive(:puts).exactly(2).times
+      expect(cli).to receive(:help)
+
+      cli.usage
     end
   end
 end
