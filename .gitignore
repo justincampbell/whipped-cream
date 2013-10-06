@@ -15,3 +15,5 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
+lib/whipped-cream/public/assets/.sass-cache
+lib/whipped-cream/public/assets/baseline.0.5.3
