@@ -1,0 +1,19 @@
+/*
+Baseline - a designer framework
+Copyright (C) 2009 Stephane Curzi, ProjetUrbain.com
+Creative Commons Attribution-Share Alike 3.0 License
+*/
+
+/******************** Alternate table style ********************/
+/* Table */
+table.table-reverse					{ border-top: none; }
+
+.table-reverse thead th,
+.table-reverse thead td				{ border: none; background: #666; padding: 9px !important; color: #fff; }
+.table-reverse tbody th,
+.table-reverse tbody td				{ padding: 9px 9px 8px 9px !important; }
+.table-reverse th,
+.table-reverse td					{ border-left: dotted 1px #000; }
+.table-reverse thead th				{ border-left: dotted 1px #aaa; }
+.table-reverse th:first-child,
+.table-reverse td:first-child		{ border-left:  none; }

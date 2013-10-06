@@ -1,0 +1,93 @@
+/*
+Baseline - a designer framework
+Copyright (C) 2009 Stephane Curzi, ProjetUrbain.com
+Creative Commons Attribution-Share Alike 3.0 License
+*/
+
+/******************** Form ********************/
+
+form							{ float: left; }
+fieldset,
+legend							{ padding-bottom: 18px; }
+label							{ margin: 0 0 16px 18px; float: left; display: block; }
+label.first						{ margin-left: 0; }
+input[type="text"],
+input[type="password"],
+input[type="select"],
+input[type="search"]			{ border: solid 1px #ccc; height: 16px; padding: 1px 2px; display: block; }
+input[type="file"]				{ border: none; }
+textarea						{ border: solid 1px #ccc; height: 16px; padding: 0 2px; display: block; line-height: 18px; }
+select							{ display: block; margin-top: 2px; }
+input[type="submit"],
+input[type="reset"],
+input[type="button"]			{ margin-left: 12px; }
+
+label.width1,
+label.width2,
+label.width3,
+label.width4					{ float: left; }
+
+label.width1 input,
+label.width1 textarea			{ width: 228px; }
+label.width2 input,
+label.width2 textarea			{ width: 480px; }
+label.width3 input,
+label.width3 textarea			{ width: 732px; }
+label.width4 input,
+label.width4 textarea			{ width: 984px; }
+
+label.width1 select,
+label.width2 select,
+label.width3 select,
+label.width4 select				{ width: 100%; }
+
+label.unitx1, label.unitx2,
+label.unitx3, label.unitx4,
+label.unitx5, label.unitx6,
+label.unitx7, label.unitx8		{ float: left; }
+
+label.unitx1 input,
+label.unitx1 textarea			{ width: 102px; }
+label.unitx2 input,
+label.unitx2 textarea			{ width: 228px; }
+label.unitx3 input,
+label.unitx3 textarea			{ width: 354px; }
+label.unitx4 input,
+label.unitx4 textarea			{ width: 480px; }
+label.unitx5 input,
+label.unitx5 textarea			{ width: 606px; }
+label.unitx6 input,
+label.unitx6 textarea			{ width: 732px; }
+label.unitx7 input,
+label.unitx7 textarea			{ width: 858px; }
+label.unitx8 input,
+label.unitx8 textarea			{ width: 984px; }
+
+label.unitx1 select,
+label.unitx2 select,
+label.unitx3 select,
+label.unitx4 select,
+label.unitx5 select,
+label.unitx6 select,
+label.unitx7 select,
+label.unitx8 select				{ width: 100%; }
+
+label.singleline				{ height: 32px; margin-bottom: 0; }
+label.singleline input			{ width: auto; display: inline; margin-left: 12px; margin-top: 0; }
+
+label.multilinex2 textarea		{ height: 36px; }
+label.multilinex3 textarea		{ height: 54px; }
+label.multilinex4 textarea		{ height: 72px; }
+label.multilinex5 textarea		{ height: 90px; }
+label.multilinex6 textarea		{ height: 108px; }
+
+.width1 .radio-text				{ width: 228px; }
+.width2	.radio-text				{ width: 480px; }
+.width3	.radio-text				{ width: 732px; }
+.width4	.radio-text				{ width: 984px; }
+
+.radio							{ margin: 1px 0 0 1px; float: left; display: block; clear: left; }
+.radio-label					{ margin: 0 0 18px 0; padding-left: 18px; float: none; display: block; clear: none; }
+
+.checkbox						{ margin: 1px 0 0 1px; float: left; display: block; clear: left; }
+.checkbox-label					{ margin: 0 0 18px 0; padding-left: 18px; float: none; display: block; clear: none; }

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Baseline - Grid</title>
+
+		<!--iPhone specific-->
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+		<link href="images/icon.png" rel="apple-touch-icon" /> 
+
+		<!--Baseline CSS files-->
+		<link type="text/css" rel="stylesheet" media="screen" href="../css/uncompressed/baseline.reset.css">
+		<link type="text/css" rel="stylesheet" media="screen" href="../css/uncompressed/baseline.base.css">
+		<link type="text/css" rel="stylesheet" media="screen" href="../css/uncompressed/baseline.type.css">
+		<link type="text/css" rel="stylesheet" media="screen" href="../css/uncompressed/baseline.table.css">
+		<link type="text/css" rel="stylesheet" media="screen" href="../css/uncompressed/baseline.form.css">
+		<link type="text/css" rel="stylesheet" media="screen" href="../css/uncompressed/baseline.grid.css">
+		<link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="../css/iphone/baseline.iphone.css">
+
+		<!--<link type="text/css" rel="stylesheet" media="screen" href="../css/compressed/baseline.compress.css">-->
+
+ 		<script type="text/javascript" src="scripts/html5.js"></script>
+		<style>
+			#page					{ margin: 0 auto 36px auto; }
+			.layout-grid			{ background-image: url(images/baseline+column.png); background-repeat: repeat; background-position: 0 1px; border-bottom: solid 1px #CEECF5; }
+			#branding a				{ border: none; }
+			.grid-example			{ background: rgba(187, 204, 221, 0.3); color: #069; }
+			.grid-example.unitx1, .grid-example.unitx2,
+			.grid-example.unitx3, .grid-example.unitx4,
+			.grid-example.unitx5, .grid-example.unitx6,
+			.grid-example.unitx7	{ margin-bottom: 18px; }
+			@media only screen and (max-device-width:480px) {
+				.layout-grid		{ background-image: url(images/baseline.png); }
+				.grid-example		{ background: rgba(187, 204, 221, 0.6); }
+			}
+		</style>
+	</head>
+
+	<body class="page-grid">
+		<div id="page">
+			<header id="branding">
+				<a href="index.html"><img src="images/header.png" /></a>
+			</header>
+			<div class="full layout-grid">
+				<header class="column width4">
+					<h1>Grid</h1>
+					<hr>
+				</header>
+				<section class="width4">
+					<h2>Page</h2>
+					<div class="column width4 grid-example">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis justo dictum justo accumsan pretium. Vestibulum sodales massa id dolor eleifend in bibendum odio pulvinar. Donec id laoreet augue. Nulla suscipit arcu vitae metus pellentesque cursus eu nec massa. Donec nec quam velit. Suspendisse potenti. Nam in est et nibh accumsan porta in eget lacus. Maecenas vestibulum scelerisque diam, nec tristique enim interdum a. Fusce eget sem justo. Mauris ultricies sapien id dolor lacinia porta. Etiam egestas pharetra molestie. Donec ullamcorper laoreet nisi et pulvinar.</p>
+					</div>
+				</section>
+				<section class="width4">
+					<h2>Simple 2 columns grid</h2>
+					<div class="column width2 first grid-example">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis justo dictum justo accumsan pretium. Vestibulum sodales massa id dolor eleifend in bibendum odio pulvinar. Donec id laoreet augue. Nulla suscipit arcu vitae metus pellentesque cursus eu nec massa. Donec nec quam velit. Suspendisse potenti. Nam in est et nibh accumsan porta in eget lacus. Maecenas vestibulum scelerisque diam, nec tristique enim interdum a. Fusce eget sem justo. Mauris ultricies sapien id dolor lacinia porta. Etiam egestas pharetra molestie. Donec ullamcorper laoreet nisi et pulvinar.</p>
+					</div>
+					<div class="column width2 grid-example">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis justo dictum justo accumsan pretium. Vestibulum sodales massa id dolor eleifend in bibendum odio pulvinar. Donec id laoreet augue. Nulla suscipit arcu vitae metus pellentesque cursus eu nec massa. Donec nec quam velit. Suspendisse potenti. Nam in est et nibh accumsan porta in eget lacus. Maecenas vestibulum scelerisque diam, nec tristique enim interdum a. Fusce eget sem justo. Mauris ultricies sapien id dolor lacinia porta. Etiam egestas pharetra molestie. Donec ullamcorper laoreet nisi et pulvinar.</p>
+					</div>
+				</section>
+				<section class="width4">
+					<h2>4 columns grid</h2>
+					<div class="column width1 first grid-example">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis justo dictum justo accumsan pretium. Vestibulum sodales massa id dolor eleifend in bibendum odio pulvinar. Donec id laoreet augue. Nulla suscipit arcu vitae metus pellentesque cursus eu nec massa. Donec nec quam velit. Suspendisse potenti. Nam in est et nibh accumsan porta in eget lacus. Maecenas vestibulum scelerisque diam, nec tristique enim interdum a. Fusce eget sem justo. Mauris ultricies sapien id dolor lacinia porta. Etiam egestas pharetra molestie. Donec ullamcorper laoreet nisi et pulvinar.</p>
+					</div>
+					<div class="column width1 grid-example">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis justo dictum justo accumsan pretium. Vestibulum sodales massa id dolor eleifend in bibendum odio pulvinar. Donec id laoreet augue. Nulla suscipit arcu vitae metus pellentesque cursus eu nec massa. Donec nec quam velit. Suspendisse potenti. Nam in est et nibh accumsan porta in eget lacus. Maecenas vestibulum scelerisque diam, nec tristique enim interdum a. Fusce eget sem justo. Mauris ultricies sapien id dolor lacinia porta. Etiam egestas pharetra molestie. Donec ullamcorper laoreet nisi et pulvinar.</p>
+					</div>
+					<div class="column width1 grid-example">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis justo dictum justo accumsan pretium. Vestibulum sodales massa id dolor eleifend in bibendum odio pulvinar. Donec id laoreet augue. Nulla suscipit arcu vitae metus pellentesque cursus eu nec massa. Donec nec quam velit. Suspendisse potenti. Nam in est et nibh accumsan porta in eget lacus. Maecenas vestibulum scelerisque diam, nec tristique enim interdum a. Fusce eget sem justo. Mauris ultricies sapien id dolor lacinia porta. Etiam egestas pharetra molestie. Donec ullamcorper laoreet nisi et pulvinar.</p>
+					</div>
+					<div class="column width1 grid-example">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis justo dictum justo accumsan pretium. Vestibulum sodales massa id dolor eleifend in bibendum odio pulvinar. Donec id laoreet augue. Nulla suscipit arcu vitae metus pellentesque cursus eu nec massa. Donec nec quam velit. Suspendisse potenti. Nam in est et nibh accumsan porta in eget lacus. Maecenas vestibulum scelerisque diam, nec tristique enim interdum a. Fusce eget sem justo. Mauris ultricies sapien id dolor lacinia porta. Etiam egestas pharetra molestie. Donec ullamcorper laoreet nisi et pulvinar.</p>
+					</div>
+				</section>
+				<section class="width4">
+					<h2>2 columns, main content and sidebar</h2>
+					<section class="column width3 first grid-example">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis justo dictum justo accumsan pretium. Vestibulum sodales massa id dolor eleifend in bibendum odio pulvinar. Donec id laoreet augue. Nulla suscipit arcu vitae metus pellentesque cursus eu nec massa. Donec nec quam velit. Suspendisse potenti. Nam in est et nibh accumsan porta in eget lacus. Maecenas vestibulum scelerisque diam, nec tristique enim interdum a. Fusce eget sem justo. Mauris ultricies sapien id dolor lacinia porta. Etiam egestas pharetra molestie. Donec ullamcorper laoreet nisi et pulvinar.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis justo dictum justo accumsan pretium. Vestibulum sodales massa id dolor eleifend in bibendum odio pulvinar. Donec id laoreet augue. Nulla suscipit arcu vitae metus pellentesque cursus eu nec massa. Donec nec quam velit. Suspendisse potenti. Nam in est et nibh accumsan porta in eget lacus. Maecenas vestibulum scelerisque diam, nec tristique enim interdum a. Fusce eget sem justo. Mauris ultricies sapien id dolor lacinia porta. Etiam egestas pharetra molestie. Donec ullamcorper laoreet nisi et pulvinar.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis justo dictum justo accumsan pretium. Vestibulum sodales massa id dolor eleifend in bibendum odio pulvinar. Donec id laoreet augue. Nulla suscipit arcu vitae metus pellentesque cursus eu nec massa. Donec nec quam velit. Suspendisse potenti. Nam in est et nibh accumsan porta in eget lacus. Maecenas vestibulum scelerisque diam, nec tristique enim interdum a. Fusce eget sem justo. Mauris ultricies sapien id dolor lacinia porta. Etiam egestas pharetra molestie. Donec ullamcorper laoreet nisi et pulvinar.</p>
+					</section>
+					<aside class="column width1 grid-example">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis justo dictum justo accumsan pretium. Vestibulum sodales massa id dolor eleifend in bibendum odio pulvinar. Donec id laoreet augue. Nulla suscipit arcu vitae metus pellentesque cursus eu nec massa. Donec nec quam velit. Suspendisse potenti. Nam in est et nibh accumsan porta in eget lacus. Maecenas vestibulum scelerisque diam, nec tristique enim interdum a. Fusce eget sem justo. Mauris ultricies sapien id dolor lacinia porta. Etiam egestas pharetra molestie. Donec ullamcorper laoreet nisi et pulvinar.</p>
+					</aside>
+				</section>
+				<section class="width4 stroke">
+					<h2>Units</h2>
+					<div class="column unitx1 first grid-example">
+						<h3>1 unit</h3>
+						<p>Lorem ipsum dolor sit amet</p>
+					</div>
+					<div class="column unitx2 first grid-example">
+						<h3>2 units</h3>
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit sed diam</p>
+					</div>
+					<div class="column unitx3 first grid-example">
+						<h3>3 units</h3>
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet</p>
+					</div>
+					<div class="column unitx4 first grid-example">
+						<h3>4 units</h3>
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+					</div>
+					<div class="column unitx5 first grid-example">
+						<h3>5 units</h3>
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci</p>
+					</div>
+					<div class="column unitx6 first grid-example">
+						<h3>6 units</h3>
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis</p>
+					</div>
+					<div class="column unitx7 first grid-example">
+						<h3>7 units</h3>
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+					</div>
+					<div class="column unitx8 first grid-example">
+						<h3>8 units</h3>
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+					</div>
+				</section>
+			</div>
+			<footer class="full">
+				<hr>
+				<p><small>Design &copy; 2009 St&eacute;phane Curzi, <a href="http://www.projeturbain.com" target="_blank">ProjetUrbain.com</a>. Baselinecss &copy; <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank">Creative Commons Attribution-Share Alike 3.0</a>.</small></p>
+			</footer>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+/*
+Baseline - a designer framework by ProjetUrbain.com
+Copyright (C) 2009 Stephane Curzi, ProjetUrbain.com
+Creative Commons Attribution-Share Alike 3.0 License
+
+Version 0.5.3
+- Fix an error on baseline.grid.css, thanks Ryan Souza
+
+Version 0.5.2
+- Remove float on header, section, footer... in baseline.base.css
+
+Version 0.5.1
+- Fix a bug introduced in version 0.5 in baseline.grid.css
+
+Version 0.5
+- Added new iphone/baseline.iphone.css
+- Re-wrote baseline.form.css to remove most style
+- Move the forms control width from baseline.form.css to baseline.grid.css
+- Re-wrote baseline.table.css to change the method to align tables on the baseline
+- Added input to baseline.reset.css
+- Added a .clear class to baseline.grid.css
+- Added a margin fix on .full in baseline.grid.css
+- Remove the padding-bottom from div in baseline.grid.css
+- Added a margin fix for ie in alternate/baseline.ie.css
+- Comment the form control font size from baseline.type.css
+- Move the table border collapse declaration from the alternate/baseline.ie.css to baseline.table.css 
+- Deprecated alternate/baseline.form.padding.css
+- Deprecated alternate/baseline.type.padding.css
+
+Version 0.2
+- Added a new stylesheet baseline.table.css
+- Added a new stylesheet alternate/baseline.ie.css for IE specific hack
+- Added a new stylesheet alternate/baseline.reverse-table.css
+- Added the table sizes to baseline.grid.css
+- Remove most of the table styles from baseline.type.css
+- Changed CAPTION style and removed TR background from baseline.base.css
+
+Version 0.1.2
+- Change to baseline.type.css to remove the margin when nesting several UL or OL
+
+Version 0.1.1
+- Minor change to baseline.form.css to fix a bug in Opera browser
+
+Version 0.1
+- First release
+*/

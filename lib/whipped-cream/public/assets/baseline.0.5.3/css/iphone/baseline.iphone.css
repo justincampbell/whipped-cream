@@ -1,0 +1,75 @@
+/*
+Baseline - a designer framework
+Copyright (C) 2009 Stephane Curzi, ProjetUrbain.com
+Creative Commons Attribution-Share Alike 3.0 License
+*/
+
+/******************** iPhone ********************/
+body								{ -webkit-text-size-adjust: none; padding: 0 18px; }
+
+/******************** Reset Baseline styles ********************/
+/* reset type element */
+p									{ word-spacing: 0; margin-bottom: 18px; }
+p+p									{ text-indent: 0; }
+pre									{ top: 6px !important; }
+input, select, textarea				{ font-size: 13px; }
+ul, ol, dl, dialog					{ margin-top: 0; }
+
+/* reset grid elements */
+#page								{ width: 100%; position: relative; }
+.column								{ margin-left: 0; display: block; float: none; }
+.width1								{ width: 100% !important; }
+.width2								{ width: 100% !important; }
+.width3								{ width: 100% !important; }
+.width4, .full						{ width: 100% !important; }
+.unitx1, .unitx2, .unitx3,
+.unitx4, .unitx5, .unitx6,
+.unitx7,.unitx8						{ width: 100% !important; }
+
+/* reset table-column elements */
+table								{ width: 100%; }
+th, td								{ width: 25% !important; }
+th.width2, td.width2				{ width: 50% !important; }
+th.width3, td.width3				{ width: 75% !important; }
+th.width4, td.width4				{ width: 100% !important; }
+
+/* Units */
+.table-unit th, .table-unit td		{ width: 12%; }
+th.unitx2, td.unitx2				{ width: 25%; }
+th.unitx3, td.unitx3				{ width: 37%; }
+th.unitx4, td.unitx4				{ width: 50%; }
+th.unitx5, td.unitx5				{ width: 62%; }
+th.unitx6, td.unitx6				{ width: 75%; }
+th.unitx7, td.unitx7				{ width: 87%; }
+th.unitx8, td.unitx8				{ width: 100%; }
+
+label.width1, label.width2,
+label.width3, label.width4			{ width: 100% !important; }
+
+label.width1, label.width2,
+label.width3, label.width4			{ float: none; margin-left: 0; }
+label.unitx1, label.unitx2,
+label.unitx3, label.unitx4,
+label.unitx5, label.unitx6,
+label.unitx7, label.unitx8			{ float: none; margin-left: 0; }
+
+/* reset forms elements */
+form								{ overflow: visible; }
+legend								{ padding-bottom: 0; }
+label								{ top: 5px; margin-bottom: 18px; line-height: 18px !important; }
+
+input[type="text"],
+input[type="password"],
+input[type="select"],
+input[type="search"]				{ width: 95% !important; margin-bottom: -4px; }
+
+input[type="radio"]					{ top: 0; margin: 0 4px 1px 0; position: relative; vertical-align: top; }
+input[type="checkbox"]				{ top: 0; margin: 0 4px 1px 0; position: relative; vertical-align: top; }
+input[type="file"]					{ display: none; }
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"]				{ position: relative; top: 2px; margin-bottom: 13px; }
+
+select								{ width: 100% !important; margin-bottom: -5px; }
+textarea							{ width: 99%; line-height: 18px; display: block; clear: left; overflow: auto; }

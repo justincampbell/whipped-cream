@@ -1,0 +1,42 @@
+/*
+Baseline - a designer framework
+Copyright (C) 2009 Stephane Curzi, ProjetUrbain.com
+Creative Commons Attribution-Share Alike 3.0 License
+*/
+
+/******************** Baseline grid: 13/18px ********************/
+body								{ font-size: 75%; line-height: 1.5; /*12/18*/ }
+
+h1, h2								{ line-height: 36px; }
+h3, h4, h5, h6						{ line-height: 18px; }
+
+h1									{ font-size: 36px; padding-top: 36px; padding-bottom: 18px; }
+h2									{ font-size: 28px; padding-top: 21px; padding-bottom: 15px; }
+h3									{ font-size: 22px; padding-top: 14px; padding-bottom: 4px; }
+h4									{ font-size: 18px; padding-top: 15px; padding-bottom: 3px; }
+h5									{ font-size: 15px; padding-top: 17px; padding-bottom: 1px; }
+h6									{ font-size: 13px; padding-top: 18px; }
+
+h1:first-child						{ padding-top: 0; }
+h2:first-child						{ padding-top: 3px; }
+h6:first-child						{ padding-top: 0; }
+
+p, pre, address, ul, ol, li,
+dl, dialog, caption					{ font-size: 13px; line-height: 18px; }
+ul, ol								{ padding-top: 18px; padding-bottom: 18px; }
+li ul, li ol						{ padding-top: 0; padding-bottom: 0; }
+abbr, small							{ line-height: 15px; }
+form, legend, label					{ font-size: 13px; line-height: 18px; }
+input, textarea						{ font-size: 12px; }
+
+table								{ font-size: 13px; line-height: 18px; margin-bottom: 18px; }
+th, td								{ padding: 9px 6px; line-height: 18px; }
+
+hr									{ position: relative; height: 4px; margin: 18px 0 14px 0; }
+
+h1.quotes							{ margin-left: -10px; }
+h2.quotes							{ margin-left: -10px; }
+h3.quotes							{ margin-left: -10px; }
+h4.quotes							{ margin-left: -10px; }
+h5.quotes							{ margin-left: -10px; }
+h6.quotes							{ margin-left: -10px; }

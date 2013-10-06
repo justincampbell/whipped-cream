@@ -1,0 +1,103 @@
+/*
+Baseline - a designer framework
+Copyright (C) 2009 Stephane Curzi, ProjetUrbain.com
+Creative Commons Attribution-Share Alike 3.0 License
+version 0.5.3
+*/
+
+/******************** Grid ********************/
+#page				{ width: 990px; position: relative; } /* 82.5em */
+#page:after			{ content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+
+/* Base column markup */
+.column				{ margin-left: 18px; display: block; float: left; } /* 1.5em */
+.colgroup			{ display: block; float: left; }
+.first				{ margin-left: 0; clear: left; }
+.gutter				{ margin-left: 18px; } /* 1.5em */
+.no-gutter			{ margin-left: 0; }
+.align-left			{ float: left; }
+.align-right		{ float: right; text-align: right; }
+.clear				{ float: left; }
+header,
+section				{ padding-bottom: 18px; }
+
+.leading			{ margin-bottom: 18px; } /* 1.5em */
+.noleading			{ margin-bottom: 0 !important; }		
+
+/* Base column width */
+.width1				{ width: 234px; } /* 19.5em */
+.width2				{ width: 486px; } /* 40.5em */
+.width3				{ width: 738px; } /* 61.5em */
+.width4				{ width: 990px; margin-left: 0 !important; } /* 82.5em */
+.full				{ display: block; float: left; width: 100%; margin-left: 0 !important; }
+
+/* Base column unit, 2 units = 1 column */
+.unitx1				{ width: 108px; } /* 9em */
+.unitx2				{ width: 234px; } /* 19.5em, Same as width1 */
+.unitx3				{ width: 360px; } /* 30em */
+.unitx4				{ width: 486px; } /* 40.5em, Same as width2 */
+.unitx5				{ width: 612px; } /* 51em */
+.unitx6				{ width: 738px; } /* 61.5em, Same as width3 */
+.unitx7				{ width: 864px; } /* 72em */
+.unitx8				{ width: 990px; margin-left: 0 !important; } /* 82.5em, Same as width4 */
+
+/* CSS3 columns */
+.columnsx2			{ -webkit-column-count: 2; -webkit-column-gap: 18px; -moz-column-count: 2; -moz-column-gap: 18px; column-count: 2; column-gap: 18px; }
+.columnsx4			{ -webkit-column-count: 4; -webkit-column-gap: 18px; -moz-column-count: 4; -moz-column-gap: 18px; column-count: 4; column-gap: 18px; }
+
+/******************** Table ********************/
+/* Columns */
+th.width1, td.width1			{ width: 234px; }
+th.width2, td.width2			{ width: 486px; }
+th.width3, td.width3			{ width: 738px; }
+th.width4, td.width4			{ width: 990px; }
+
+/* Units */
+th.unitx1, th.unitx1			{ width: 108px; }
+th.unitx2, td.unitx2			{ width: 234px; }
+th.unitx3, td.unitx3			{ width: 360px; }
+th.unitx4, td.unitx4			{ width: 486px; }
+th.unitx5, td.unitx5			{ width: 612px; }
+th.unitx6, td.unitx6			{ width: 738px; }
+th.unitx7, td.unitx7			{ width: 864px; }
+th.unitx8, td.unitx8			{ width: 990px; }
+
+/******************** Forms ********************/
+label.width1, label.width2,
+label.width3, label.width4		{ margin-left: 18px; float: left; }
+
+label.unitx1, label.unitx2,
+label.unitx3, label.unitx4,
+label.unitx5, label.unitx6,
+label.unitx7, label.unitx8		{ margin-left: 18px; float: left; }
+label.first						{ margin-left: 0; }
+
+label.width4, label.unitx8		{ width: 990px; overflow: hidden; }
+
+label.width1 input[type="text"], label.width1 input[type="password"], label.width1 input[type="select"], label.width1 input[type="search"]	{ width: 228px; }
+label.width2 input[type="text"], label.width2 input[type="password"], label.width2 input[type="select"], label.width2 input[type="search"]	{ width: 480px; }
+label.width3 input[type="text"], label.width3 input[type="password"], label.width3 input[type="select"], label.width3 input[type="search"]	{ width: 732px; }
+label.width4 input[type="text"], label.width4 input[type="password"], label.width4 input[type="select"], label.width4 input[type="search"]	{ width: 984px; }
+
+label.width1 select				{ width: 234px; }
+label.width2 select				{ width: 486px; }
+label.width3 select				{ width: 738px; }
+label.width4 select				{ width: 990px; }
+
+label.unitx1 input[type="text"], label.unitx1 input[type="password"], label.unitx1 input[type="select"], label.unitx1 input[type="search"]	{ width: 102px; }
+label.unitx2 input[type="text"], label.unitx2 input[type="password"], label.unitx2 input[type="select"], label.unitx2 input[type="search"]	{ width: 228px; }
+label.unitx3 input[type="text"], label.unitx3 input[type="password"], label.unitx3 input[type="select"], label.unitx3 input[type="search"]	{ width: 354px; }
+label.unitx4 input[type="text"], label.unitx4 input[type="password"], label.unitx4 input[type="select"], label.unitx4 input[type="search"]	{ width: 480px; }
+label.unitx5 input[type="text"], label.unitx5 input[type="password"], label.unitx5 input[type="select"], label.unitx5 input[type="search"]	{ width: 606px; }
+label.unitx6 input[type="text"], label.unitx6 input[type="password"], label.unitx6 input[type="select"], label.unitx6 input[type="search"]	{ width: 732px; }
+label.unitx7 input[type="text"], label.unitx7 input[type="password"], label.unitx7 input[type="select"], label.unitx7 input[type="search"]	{ width: 858px; }
+label.unitx8 input[type="text"], label.unitx8 input[type="password"], label.unitx8 input[type="select"], label.unitx8 input[type="search"]	{ width: 984px; }
+
+label.unitx1 select				{ width: 108px; }
+label.unitx2 select				{ width: 234px; }
+label.unitx3 select				{ width: 360px; }
+label.unitx4 select				{ width: 486px; }
+label.unitx5 select				{ width: 612px; }
+label.unitx6 select				{ width: 738px; }
+label.unitx7 select				{ width: 864px; }
+label.unitx8 select				{ width: 990px; }

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Baseline - Forms</title>
+
+		<!--iPhone specific-->
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+		<link href="images/icon.png" rel="apple-touch-icon" /> 
+
+		<!--Baseline CSS files-->
+		<link type="text/css" rel="stylesheet" media="screen" href="../css/uncompressed/baseline.reset.css">
+		<link type="text/css" rel="stylesheet" media="screen" href="../css/uncompressed/baseline.base.css">
+		<link type="text/css" rel="stylesheet" media="screen" href="../css/uncompressed/baseline.type.css">
+		<link type="text/css" rel="stylesheet" media="screen" href="../css/uncompressed/baseline.table.css">
+		<link type="text/css" rel="stylesheet" media="screen" href="../css/uncompressed/baseline.form.css">
+		<link type="text/css" rel="stylesheet" media="screen" href="../css/uncompressed/baseline.grid.css">
+		<link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="../css/iphone/baseline.iphone.css">
+
+		<!--<link type="text/css" rel="stylesheet" media="screen" href="../css/compressed/baseline.compress.css">-->
+
+ 		<script type="text/javascript" src="scripts/html5.js"></script>
+		<style>
+			#page					{ margin: 0 auto 36px auto; }
+			.layout-grid			{ background-image: url(images/baseline+column.png); background-repeat: repeat; background-position: 0 1px; border-bottom: solid 1px #CEECF5; }
+			#branding a				{ border: none; }
+			@media only screen and (max-device-width:480px) {
+				.layout-grid		{ background-image: url(images/baseline.png); }
+			}
+		</style>
+	</head>
+
+	<body class="page-forms">
+		<div id="page">
+			<header id="branding">
+				<a href="index.html"><img src="images/header.png" /></a>
+			</header>
+			<div class="full layout-grid">
+				<header class="column width4">
+					<h1>Forms</h1>
+					<hr>
+				</header>
+				<form class="full">
+					<section class="column first width2">
+						<h2>Standard input and labels</h2>
+						<fieldset class="width2">
+							<legend>Basic information</legend>	
+							<label class="width1 first field-first">First Name<input type="text" name="first_name" value="" class="text"></label>
+							<label class="width1 field-last">Last Name<input type="text" name="last_name" value="" class="text"></label>
+							<label class="width2 first field-address">Address<input type="text" name="address" value="" class="text"></label>
+							<label class="width1 first field-city">City<input type="text" name="city" value="" class="text"></label>
+							<label class="unitx1 field-state">State
+								<select name="state">
+									<option value="AB">Alberta</option>
+									<option value="BC">British Columbia</option>
+									<option value="MB">Manitoba</option>
+									<option value="NB">New Brunswick</option>
+									<option value="NL">Newfoundland and Labrador</option>
+									<option value="NT">Northwest Territories</option>
+									<option value="NS">Nova Scotia</option>
+									<option value="NU">Nunavut</option>
+									<option value="ON">Ontario</option>
+									<option value="PE">Prince Edward Island</option>
+									<option selected value="QC">Quebec</option>
+									<option value="SK">Saskatchewan</option>
+									<option value="YT">Yukon</option>
+								</select>
+							</label>
+							<label class="unitx1 field-zip">Zip Code<input type="text" name="zip" value="" class="text"></label>
+							<label class="width1 first field-phone">Phone<input type="text" name="phone" value="" class="text"></label>
+							<label class="width1 field-call">Cell<input type="text" name="cell" value="" class="text"></label>
+							<label class="width2 first field-email">Email<input type="text" name="email" value="" class="text"></label>
+							<label class="width1 first field-password">Password<input type="password" name="password" value="" class="text"></label>
+							<label class="width1 field-password">Retype password<input type="password" name="re-password" value="" class="text"></label>
+							<label class="width2 first field-file">Import<input type="file" class="file" name="file"></label>
+						</fieldset>
+					</section>
+					<section class="column width2">
+						<h2>Textarea, radio button and checkbox</h2>
+						<fieldset class="width2">
+							<legend>More information</legend>	
+							<label class="width2 first field-describe">Description
+								<textarea name="describe" rows="4"></textarea>
+							</label>
+						</fieldset>
+						<fieldset>
+							<label class="width1 first" for="radiobutton_1"><input id="radiobutton_1" type="radio" name="radiobutton" value="">Lorem ipsum dolor sit amet</label>
+							<label class="width1" for="radiobutton_2"><input id="radiobutton_2" type="radio" name="radiobutton" value="">Lorem ipsum dolor sit amet</label>
+							<label class="width2 first" for="radiobutton_2"><input id="radiobutton_3" type="radio" name="radiobutton" value="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat</label>
+							<label class="width2 first" for="radiobutton_4"><input id="radiobutton_4" type="radio" name="radiobutton" value="">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore</label>
+							<label class="width1 first" for="checkbox_1"><input id="checkbox_1" type="checkbox" name="subscribe" value="">Lorem ipsum dolor sit amet</label>
+							<label class="width1" for="checkbox_2"><input id="checkbox_2" type="checkbox" name="subscribe" value="">Lorem ipsum dolor sit amet</label>
+							<label class="width2 first" for="checkbox_3"><input id="checkbox_3" type="checkbox" name="subscribe" value="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat Ut wisi enim ad minim veniam</label>
+						</fieldset>
+						<fieldset class="width2">
+							<input type="submit" name="submit" value="Submit">
+							<input type="button" name="" value="button">
+							<input type="reset" name="" value="reset">
+						</fieldset>
+					</section>
+					<section class="column width4 first">
+						<h2>Different size input</h2>
+						<fieldset class="width4">
+							<label class="width1 first">Width 1<input type="text" name="width1" value="" class="text"></label>
+							<label class="width2 first">Width 2<input type="text" name="width2" value="" class="text"></label>
+							<label class="width3 first">Width 3<input type="text" name="width3" value="" class="text"></label>
+							<label class="width4 first">Width 4<input type="text" name="width4" value="" class="text"></label>
+						</fieldset>
+						<fieldset class="width4">
+							<label class="unitx1 first">1 unit<input type="text" name="unitx1" value="" class="text"></label>
+							<label class="unitx2 first">2 units<input type="text" name="unitx2" value="" class="text"></label>
+							<label class="unitx3 first">3 units<input type="text" name="unitx3" value="" class="text"></label>
+							<label class="unitx4 first">4 units<input type="text" name="unitx4" value="" class="text"></label>
+							<label class="unitx5 first">5 units<input type="text" name="unitx5" value="" class="text"></label>
+							<label class="unitx6 first">6 units<input type="text" name="unitx6" value="" class="text"></label>
+							<label class="unitx7 first">7 units<input type="text" name="unitx7" value="" class="text"></label>
+							<label class="unitx8 first">8 units<input type="text" name="unitx8" value="" class="text"></label>
+						</fieldset>
+					</section>
+				</form>
+			</div>
+			<footer class="full">
+				<hr>
+				<p><small>Design &copy; 2009 St&eacute;phane Curzi, <a href="http://www.projeturbain.com" target="_blank">ProjetUrbain.com</a>. Baselinecss &copy; <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank">Creative Commons Attribution-Share Alike 3.0</a>.</small></p>
+			</footer>
+		</div>
+	</body>
+</html>
