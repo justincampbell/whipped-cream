@@ -54,7 +54,7 @@ describe WhippedCream::Runner do
 
     it "defines a method that reads and converts the pin's value" do
       pin = runner.pins[:door]
-      pin.stub value: 1
+      pin.stub read: 1
 
       expect(runner.door).to eq("Closed")
     end
@@ -96,13 +96,13 @@ describe WhippedCream::Runner do
     it "defines a light method that switches the pin on and off" do
       pin = runner.pins[:light]
 
-      expect(pin.value).to eq(0)
+      expect(pin.read).to eq(0)
       runner.light
-      expect(pin.value).to eq(1)
+      expect(pin.read).to eq(1)
       runner.light
-      expect(pin.value).to eq(0)
+      expect(pin.read).to eq(0)
       runner.light
-      expect(pin.value).to eq(1)
+      expect(pin.read).to eq(1)
     end
   end
 end

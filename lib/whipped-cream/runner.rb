@@ -69,7 +69,7 @@ module WhippedCream
       define_singleton_method sensor.id do
         pin = pins[sensor.id]
 
-        pin.value == 1 ? sensor.high : sensor.low
+        pin.read == 1 ? sensor.high : sensor.low
       end
     end
 
@@ -86,7 +86,7 @@ module WhippedCream
         define_singleton_method switch.id do
           pin = pins[switch.id]
 
-          pin.value == 1 ? pin.off : pin.on
+          pin.read == 1 ? pin.off : pin.on
         end
       end
     end

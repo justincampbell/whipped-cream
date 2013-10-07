@@ -1,7 +1,7 @@
 <div class="item">
   <h2><%= control.name %></h2>
-  <p><%= runner.pins[control.id].value.nonzero? ? "On" : "Off" %></p>
+  <p><%= runner.pins[control.id].read.nonzero? ? "On" : "Off" %></p>
   <form action="/<%= control.id %>" method="get">
-    <input type="submit" value="<%= runner.pins[control.id].value.nonzero? ? "Off" : "On" %>">
+    <input type="submit" value="<%= runner.pins[control.id].read.nonzero? ? "Off" : "On" %>">
   </form>
 </div>
