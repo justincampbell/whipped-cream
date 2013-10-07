@@ -36,6 +36,7 @@ module WhippedCream
     def configure
       configure_buttons
       configure_sensors
+      configure_switches
     end
 
     def configure_buttons
@@ -68,13 +69,25 @@ module WhippedCream
       define_singleton_method sensor.id do
         pin = pins[sensor.id]
 
-        pin.value == 1 ? sensor.high : sensor.low
+        pin.read == 1 ? sensor.high : sensor.low
       end
     end
 
     def define_sensor_method_with_block(sensor)
       define_singleton_method sensor.id do
         sensor.block.call
+      end
+    end
+
+    def configure_switches
+      plugin.switches.each do |switch|
+        create_pin switch, direction: :out
+
+        define_singleton_method switch.id do
+          pin = pins[switch.id]
+
+          pin.read == 1 ? pin.off : pin.on
+        end
       end
     end
 

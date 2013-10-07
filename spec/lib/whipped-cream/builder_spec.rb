@@ -136,4 +136,27 @@ describe WhippedCream::Builder do
       end
     end
   end
+
+  describe "#switch" do
+    subject { plugin.switches }
+
+    it { should be_empty }
+
+    context "with a switch" do
+      let(:plugin) {
+        described_class.build do
+          switch "Light", pin: 3
+        end
+      }
+
+      it "adds a switch" do
+        expect(plugin.switches).to have(1).item
+
+        switch = plugin.switches.first
+
+        expect(switch.name).to eq("Light")
+        expect(switch.pin).to eq(3)
+      end
+    end
+  end
 end
