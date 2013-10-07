@@ -55,7 +55,7 @@ module WhippedCream
     def run_plugin
       ssh_exec <<-SCRIPT
         cd ~/whipped-cream
-        sudo whipped-cream start demo.rb --daemonize
+        sudo whipped-cream start #{plugin_filename} --daemonize
       SCRIPT
     end
 
