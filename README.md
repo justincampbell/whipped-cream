@@ -1,4 +1,7 @@
 # whipped-cream
+[![Gem Version](https://badge.fury.io/rb/whipped-cream.png)](http://badge.fury.io/rb/whipped-cream)
+[![Build Status](https://travis-ci.org/justincampbell/whipped-cream.png?branch=master)](https://travis-ci.org/justincampbell/whipped-cream)
+[![Code Climate](https://codeclimate.com/github/justincampbell/whipped-cream.png)](https://codeclimate.com/github/justincampbell/whipped-cream)
 
 ## DSL
 
