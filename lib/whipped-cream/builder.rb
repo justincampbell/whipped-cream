@@ -56,5 +56,9 @@ module WhippedCream
     def sensor(name, options = {}, &block)
       plugin.controls << Sensor.new(name, options, &block)
     end
+
+    def switch(name, options = {})
+      plugin.controls << Switch.new(name, options)
+    end
   end
 end

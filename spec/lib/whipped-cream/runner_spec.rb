@@ -77,4 +77,32 @@ describe WhippedCream::Runner do
       end
     end
   end
+
+  context "with a switch" do
+    let(:plugin) {
+      WhippedCream::Plugin.build do
+        switch "Light", pin: 3
+      end
+    }
+
+    it "sets up that pin with direction: :out" do
+      pin = runner.pins[:light]
+
+      expect(pin).to be_a(PiPiper::Pin)
+      expect(pin.pin).to eq(3)
+      expect(pin.direction).to eq(:out)
+    end
+
+    it "defines a light method that switches the pin on and off" do
+      pin = runner.pins[:light]
+
+      expect(pin.value).to eq(0)
+      runner.light
+      expect(pin.value).to eq(1)
+      runner.light
+      expect(pin.value).to eq(0)
+      runner.light
+      expect(pin.value).to eq(1)
+    end
+  end
 end
