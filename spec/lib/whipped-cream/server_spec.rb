@@ -23,19 +23,31 @@ describe WhippedCream::Server do
     expect(server.runner).to eq(server.runner)
   end
 
-  it "creates a runner when the server is created" do
-    expect(server.instance_variable_get(:@runner)).to be_a(WhippedCream::Runner)
-  end
-
   it "builds up a Sinatra application from a plugin" do
+    server.start
+
     expect(
       server.web.routes['GET'].find { |route| route.first.match('/open_close') }
     ).to be_true
   end
 
-  it "starts the Sinatra application" do
-    expect(Rack::Server).to receive(:start)
+  describe "#start" do
+    it "starts a Rack server" do
+      expect(Rack::Server).to receive(:start).with(
+        app: WhippedCream::Server::Web, port: 8080
+      )
 
-    server
+      server.start
+    end
+
+    context "with daemonize: true" do
+      it "starts the Sinatra application" do
+        expect(Rack::Server).to receive(:start).with(
+          app: WhippedCream::Server::Web, port: 8080, daemonize: true
+        )
+
+        server.start(daemonize: true)
+      end
+    end
   end
 end

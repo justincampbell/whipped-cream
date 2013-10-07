@@ -7,16 +7,18 @@ module PiPiper
     def initialize(options)
       @pin = options[:pin]
       @direction = options[:direction]
+
+      @value = 0
     end
 
     def on
-      @value = :on
+      @value = 1
 
       log "Pin #{pin} on"
     end
 
     def off
-      @value = :off
+      @value = 0
 
       log "Pin #{pin} off"
     end

@@ -1,3 +1,3 @@
 module WhippedCream
-  VERSION = "0.0.1"
+  VERSION = "0.0.1pre3"
 end

@@ -15,6 +15,7 @@ describe WhippedCream::CLI do
         button "Open/Close", pin: 1
     PLUGIN
   }
+  let(:pi_address) { "192.168.0.123" }
   let(:tmpdir) { Dir.mktmpdir }
 
   before do
@@ -27,9 +28,41 @@ describe WhippedCream::CLI do
 
   describe "#demo" do
     it "launches a web server with an example plugin" do
-      expect(WhippedCream::Server).to receive(:new)
+      expect(Rack::Server).to receive(:start)
 
       cli.demo
+    end
+  end
+
+  describe "#deploy" do
+    it "deploys a plugin to a Pi" do
+      deployer_double = double(WhippedCream::Deployer)
+
+      expect(WhippedCream::Deployer).to receive(:new) { deployer_double }
+      expect(deployer_double).to receive(:deploy)
+
+      cli.deploy(plugin_filename, pi_address)
+    end
+  end
+
+  describe "#start" do
+    let(:server_double) { double(WhippedCream::Server) }
+
+    it "starts a server for the plugin" do
+      expect(WhippedCream::Server).to receive(:new) { server_double }
+      expect(server_double).to receive(:start)
+
+      cli.start(plugin_filename)
+    end
+
+    context "with --daemonize" do
+      it "starts a server in the background" do
+        expect(WhippedCream::Server).to receive(:new) { server_double }
+        expect(server_double).to receive(:start).with(daemonize: true)
+
+        cli.options = { daemonize: true }
+        cli.start(plugin_filename)
+      end
     end
   end
 
@@ -39,18 +72,6 @@ describe WhippedCream::CLI do
       expect(cli).to receive(:help)
 
       cli.usage
-    end
-  end
-
-  describe "#start" do
-    before do
-      Rack::Server.stub :start
-    end
-
-    it "starts a server for the plugin" do
-      expect(WhippedCream::Server).to receive(:new)
-
-      cli.start(plugin_filename)
     end
   end
 end

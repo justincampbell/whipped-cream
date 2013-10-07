@@ -20,7 +20,7 @@ module WhippedCream
     def initialize(plugin)
       @plugin = plugin
 
-      start
+      configure
     end
 
     def name
@@ -33,7 +33,7 @@ module WhippedCream
 
     private
 
-    def start
+    def configure
       configure_buttons
       configure_sensors
     end
@@ -54,17 +54,27 @@ module WhippedCream
 
     def configure_sensors
       plugin.sensors.each do |sensor|
-        create_pin sensor, direction: :in
-
-        define_singleton_method sensor.id do
-          if sensor.pin
-            pin = pins[sensor.id]
-
-            pin.value == 1 ? sensor.high : sensor.low
-          else
-            sensor.block.call
-          end
+        if sensor.pin
+          define_sensor_method_with_pin sensor
+        else
+          define_sensor_method_with_block sensor
         end
+      end
+    end
+
+    def define_sensor_method_with_pin(sensor)
+      create_pin sensor, direction: :in
+
+      define_singleton_method sensor.id do
+        pin = pins[sensor.id]
+
+        pin.value == 1 ? sensor.high : sensor.low
+      end
+    end
+
+    def define_sensor_method_with_block(sensor)
+      define_singleton_method sensor.id do
+        sensor.block.call
       end
     end
 

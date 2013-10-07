@@ -2,10 +2,12 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link href="/assets/application.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="/assets/stylesheets/baseline.compress.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="/assets/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css">
     <meta content="width=device-width" name="viewport">
   </head>
   <body>
+    <h1><%= title %></h1>
     <%= yield %>
   </body>
 </html>
