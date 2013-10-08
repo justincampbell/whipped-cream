@@ -35,7 +35,8 @@ module WhippedCream
     def bootstrap
       ssh_exec <<-SCRIPT
         which ruby ||
-          time sudo apt-get install ruby -y
+          (time sudo apt-get update &&
+           time sudo apt-get install ruby -y)
 
         which whipped-cream ||
           time sudo gem install whipped-cream --no-ri --no-rdoc --pre
