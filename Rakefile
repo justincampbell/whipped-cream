@@ -6,5 +6,8 @@ task default: :ci
 
 task ci: [:spec, :cane]
 
-Cane::RakeTask.new
 RSpec::Core::RakeTask.new
+
+Cane::RakeTask.new do |cane|
+  cane.add_threshold 'coverage/.last_run.json', :>=, 95
+end
