@@ -110,7 +110,7 @@ from [HobbyTronics](http://www.hobbytronics.co.uk/raspberry-pi-gpio-pinout)
 
 ### Controls
 
-### Switches
+#### Switches
 
 Toggle a pin on or off.
 
@@ -118,7 +118,7 @@ Toggle a pin on or off.
 switch "Light", pin: 24
 ```
 
-### Buttons
+#### Buttons
 
 Momentarily turn a pin on for 0.25 seconds.
 
@@ -126,7 +126,7 @@ Momentarily turn a pin on for 0.25 seconds.
 button "Open/Close", pin: 18
 ```
 
-### Sensors
+#### Sensors
 
 Display something on the web page based on a pin's value.
 
