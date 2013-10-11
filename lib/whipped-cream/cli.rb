@@ -9,7 +9,7 @@ module WhippedCream
     desc "usage", "Display usage banner", hide: true
     def usage
       puts [
-        "whipped-cream #{WhippedCream::VERSION}",
+        "Whipped Cream #{WhippedCream::VERSION}",
         "https://github.com/justincampbell/whipped-cream"
       ].join("\n")
 
