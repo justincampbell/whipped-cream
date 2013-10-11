@@ -44,14 +44,7 @@ module WhippedCream
         create_pin button, direction: :out
 
         define_singleton_method button.id do
-          pin = pins[button.id]
-
-          pin.on
-
-          Thread.new {
-            sleep 0.25
-            pin.off
-          }
+          tap_pin(pins[button.id])
         end
       end
     end
@@ -87,9 +80,7 @@ module WhippedCream
         create_pin switch, direction: :out
 
         define_singleton_method switch.id do
-          pin = pins[switch.id]
-
-          pin.read == 1 ? pin.off : pin.on
+          toggle_pin(pins[switch.id])
         end
       end
     end
@@ -100,6 +91,23 @@ module WhippedCream
       options[:pin] = control.pin
 
       pins[control.id] = PiPiper::Pin.new(options)
+    end
+
+    def tap_pin(pin)
+      pin.on
+
+      Thread.new {
+        sleep 0.25
+        pin.off
+      }
+    end
+
+    def toggle_pin(pin)
+      if pin.read.nonzero?
+        pin.off
+      else
+        pin.on
+      end
     end
   end
 end
