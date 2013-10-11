@@ -47,8 +47,11 @@ module WhippedCream
           pin = pins[button.id]
 
           pin.on
-          sleep 0.25
-          pin.off
+
+          Thread.new {
+            sleep 0.25
+            pin.off
+          }
         end
       end
     end
