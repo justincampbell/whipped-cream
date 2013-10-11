@@ -110,6 +110,14 @@ from [HobbyTronics](http://www.hobbytronics.co.uk/raspberry-pi-gpio-pinout)
 
 ### Controls
 
+#### Name
+
+Gets shown at the top of the page.
+
+```rb
+name "Garage"
+```
+
 #### Switches
 
 Toggle a pin on or off.
