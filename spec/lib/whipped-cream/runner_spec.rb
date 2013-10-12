@@ -33,7 +33,7 @@ describe WhippedCream::Runner do
       expect(runner).to receive(:sleep).with(0.25)
       expect(pin).to receive(:off)
 
-      runner.open_close
+      runner.open_close.join
     end
   end
 
