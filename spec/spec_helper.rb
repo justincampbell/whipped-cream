@@ -4,10 +4,8 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
 puts RUBY_DESCRIPTION
 
-unless ENV['skip_coverage']
-  require 'simplecov'
-  SimpleCov.start
-end
+require 'simplecov'
+SimpleCov.start
 
 require 'whipped-cream'
 
