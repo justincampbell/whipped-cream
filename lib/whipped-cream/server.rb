@@ -1,4 +1,4 @@
-require 'sinatra'
+require 'rack'
 
 module WhippedCream
   # A server handles building a plugin/runner and starting a web server
@@ -60,32 +60,10 @@ module WhippedCream
 
     def build_switch_routes
       plugin.switches.each do |switch|
-        web.get "/#{switch.id}" do
-          runner.send(switch.id)
+        web.get "/#{switch.id}" do |value|
+          runner.send("#{switch.id}=", value)
           redirect to('/')
         end
-      end
-    end
-
-    # A Sinatra application skeleton that is used to build up the web server
-    # for this plugin.
-    class Web < Sinatra::Application
-      get '/' do
-        erb :index
-      end
-
-      private
-
-      def controls
-        runner.plugin.controls
-      end
-
-      def runner
-        Runner.instance
-      end
-
-      def title
-        runner.name
       end
     end
   end
