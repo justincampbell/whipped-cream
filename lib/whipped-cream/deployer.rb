@@ -34,7 +34,7 @@ module WhippedCream
 
     def bootstrap
       ssh_exec <<-SCRIPT
-        which ruby ||
+        dpkg --status ruby1.9.3 > /dev/null ||
           (time sudo apt-get update &&
            time sudo apt-get install ruby1.9.3 -y)
 
