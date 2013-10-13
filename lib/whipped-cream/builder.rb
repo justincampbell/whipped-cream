@@ -42,7 +42,7 @@ module WhippedCream
     end
 
     def camera
-      plugin.camera = true
+      plugin.controls << Camera.new
     end
 
     def helpers(&block)

@@ -66,9 +66,9 @@ describe WhippedCream::Builder do
   end
 
   describe "#camera" do
-    subject { plugin.camera }
+    subject { plugin.cameras }
 
-    it { should be_false }
+    it { should be_empty }
 
     context "with camera in the plugin" do
       let(:plugin) {
@@ -77,7 +77,7 @@ describe WhippedCream::Builder do
         end
       }
 
-      it { should be_true }
+      it { should_not be_empty }
     end
   end
 
