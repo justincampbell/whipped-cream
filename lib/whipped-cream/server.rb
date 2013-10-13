@@ -39,7 +39,7 @@ module WhippedCream
     end
 
     def start_web(options = {})
-      options = { app: web, port: port }.merge(options)
+      options = { app: web, Port: port }.merge(options)
 
       Rack::Server.start options
     end
