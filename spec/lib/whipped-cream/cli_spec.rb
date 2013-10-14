@@ -57,10 +57,27 @@ describe WhippedCream::CLI do
 
     context "with --daemonize" do
       it "starts a server in the background" do
-        expect(WhippedCream::Server).to receive(:new) { server_double }
-        expect(server_double).to receive(:start).with(daemonize: true)
+        expect(WhippedCream::Server).to(
+          receive(:new).with { |plugin, options|
+            expect(plugin).to be_a(WhippedCream::Plugin)
+            expect(options).to eq({ daemonize: true })
+          }.and_return(server_double)
+        )
+        expect(server_double).to receive(:start)
 
         cli.options = { daemonize: true }
+        cli.start(plugin_filename)
+      end
+    end
+
+    context "with --port" do
+      it "starts a server on a specific port" do
+        expect(WhippedCream::Server).to(
+          receive(:new).with(anything, port: 1234).and_return(server_double)
+        )
+        expect(server_double).to receive(:start)
+
+        cli.options = { port: 1234 }
         cli.start(plugin_filename)
       end
     end

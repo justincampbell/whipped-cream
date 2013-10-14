@@ -3,25 +3,22 @@ require 'rack'
 module WhippedCream
   # A server handles building a plugin/runner and starting a web server
   class Server
-    attr_reader :plugin
+    attr_reader :plugin, :options
 
-    def initialize(plugin)
+    def initialize(plugin, options = {})
       @plugin = plugin
+      @options = options
     end
 
-    def start(options = {})
+    def start
       ensure_routes_built
       ensure_runner_started
 
-      start_web(options)
+      start_web
     end
 
     def runner
       @runner ||= Runner.create_instance(plugin)
-    end
-
-    def port
-      8080
     end
 
     def web
@@ -38,10 +35,16 @@ module WhippedCream
       @routes_built ||= build_routes || true
     end
 
-    def start_web(options = {})
-      options = { app: web, Port: port }.merge(options)
+    def rack_options
+      {
+        app: web,
+        Port: options.fetch(:port, 8080),
+        daemonize: !!options[:daemonize]
+      }
+    end
 
-      Rack::Server.start options
+    def start_web
+      Rack::Server.start rack_options
     end
 
     def build_routes

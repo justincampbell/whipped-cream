@@ -1,13 +1,15 @@
 require 'spec_helper'
 
 describe WhippedCream::Server do
-  subject(:server) { described_class.new(plugin) }
+  subject(:server) { described_class.new(plugin, options) }
 
   let(:plugin) {
     WhippedCream::Plugin.build do
       button "Open/Close", pin: 1
     end
   }
+
+  let(:options) { Hash.new }
 
   before do
     Rack::Server.stub :start
@@ -34,19 +36,37 @@ describe WhippedCream::Server do
   describe "#start" do
     it "starts a Rack server" do
       expect(Rack::Server).to receive(:start).with(
-        app: WhippedCream::Web, Port: 8080
+        app: WhippedCream::Web, Port: 8080, daemonize: false
       )
 
       server.start
     end
 
     context "with daemonize: true" do
-      it "starts the Sinatra application" do
+      let(:options) {
+        { daemonize: true }
+      }
+
+      it "starts the Rack server daemonized" do
         expect(Rack::Server).to receive(:start).with(
           app: WhippedCream::Web, Port: 8080, daemonize: true
         )
 
-        server.start(daemonize: true)
+        server.start
+      end
+    end
+
+    context "with port: 1234" do
+      let(:options) {
+        { port: 1234 }
+      }
+
+      it "starts the Rack server on a specific port" do
+        expect(Rack::Server).to receive(:start).with(
+          app: WhippedCream::Web, Port: 1234, daemonize: false
+        )
+
+        server.start
       end
     end
   end

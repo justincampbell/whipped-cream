@@ -37,12 +37,14 @@ module WhippedCream
     method_option :daemonize,
       type: :boolean,
       desc: "Run the server in the background"
+    method_option :port,
+      desc: "Choose a different port to run the server on"
     def start(plugin_name)
       plugin_path = resolve_plugin(plugin_name)
 
       plugin = Plugin.from_file(plugin_path)
-      server = Server.new(plugin)
-      server.start(options)
+      server = Server.new(plugin, options)
+      server.start
     end
 
     no_tasks do
