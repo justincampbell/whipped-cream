@@ -4,9 +4,12 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
 puts RUBY_DESCRIPTION
 
-require 'simplecov'
-SimpleCov.start do
-  add_filter '/spec/'
+if ENV['coverage']
+  require 'simplecov'
+
+  SimpleCov.start do
+    add_filter '/spec/'
+  end
 end
 
 require 'whipped-cream'

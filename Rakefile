@@ -2,6 +2,8 @@ require "bundler/gem_tasks"
 require 'cane/rake_task'
 require 'rspec/core/rake_task'
 
+ENV['coverage'] = 'true'
+
 task default: :ci
 
 task ci: [:spec, :cane]
