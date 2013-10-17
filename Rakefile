@@ -11,5 +11,5 @@ task ci: [:spec, :cane]
 RSpec::Core::RakeTask.new
 
 Cane::RakeTask.new do |cane|
-  cane.add_threshold 'coverage/.last_run.json', :>=, 95
+  cane.add_threshold 'coverage/.last_run.json', :>=, 90
 end
