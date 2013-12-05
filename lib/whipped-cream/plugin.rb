@@ -23,6 +23,10 @@ module WhippedCream
       controls.select { |control| control.is_a? Button }
     end
 
+    def cameras
+      controls.select { |control| control.is_a? Camera }
+    end
+
     def fields
       controls.select { |control| control.is_a? Field }
     end

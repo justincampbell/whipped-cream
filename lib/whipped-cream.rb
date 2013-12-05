@@ -1,5 +1,6 @@
 require 'whipped-cream/builder'
 require 'whipped-cream/button'
+require 'whipped-cream/camera'
 require 'whipped-cream/cli'
 require 'whipped-cream/deployer'
 require 'whipped-cream/plugin'

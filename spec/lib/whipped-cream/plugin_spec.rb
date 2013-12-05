@@ -9,6 +9,7 @@ describe WhippedCream::Plugin do
   its(:controls) { should be_empty }
 
   its(:buttons) { should be_empty }
+  its(:cameras) { should be_empty }
   its(:fields) { should be_empty }
   its(:sensors) { should be_empty }
   its(:switches) { should be_empty }

@@ -1,5 +1,7 @@
 name "Demo"
 
+camera
+
 button "Open/Close", pin: 1
 
 sensor "Door", pin: 2, high: "Open", low: "Closed"
