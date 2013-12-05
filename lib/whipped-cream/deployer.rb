@@ -53,6 +53,16 @@ module WhippedCream
       ssh_exec 'sudo pkill -9 -f whipped-cream'
     end
 
+    def configure_camera
+      scp_copy file('motion.conf'), '/etc/motion/motion.conf'
+    end
+
+    def start_camera
+      ssh_exec <<-SCRIPT
+        sudo motion
+      SCRIPT
+    end
+
     def run_plugin
       ssh_exec <<-SCRIPT
         cd ~/whipped-cream
