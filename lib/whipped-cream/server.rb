@@ -55,7 +55,7 @@ module WhippedCream
     def build_button_routes
       plugin.buttons.each do |button|
         web.get "/#{button.id}" do
-          runner.send(button.id)
+          runner.send button.id
           redirect to('/')
         end
       end
@@ -63,8 +63,8 @@ module WhippedCream
 
     def build_switch_routes
       plugin.switches.each do |switch|
-        web.get "/#{switch.id}" do |value|
-          runner.send("#{switch.id}=", value)
+        web.get "/#{switch.id}" do
+          runner.send switch.id
           redirect to('/')
         end
       end

@@ -25,12 +25,36 @@ describe WhippedCream::Server do
     expect(server.runner).to eq(server.runner)
   end
 
-  it "builds up a Sinatra application from a plugin" do
-    server.start
+  context "with a button" do
+    let(:plugin) {
+      WhippedCream::Plugin.build do
+        button "Open/Close", pin: 1
+      end
+    }
 
-    expect(
-      server.web.routes['GET'].find { |route| route.first.match('/open_close') }
-    ).to be_true
+    before { server.start }
+
+    it "creates a button route" do
+      expect(server.web.routes['GET'].find { |route|
+          route.first.match('/open_close')
+      }).to be_true
+    end
+  end
+
+  context "with a switch" do
+    let(:plugin) {
+      WhippedCream::Plugin.build do
+        switch "Light", pin: 1
+      end
+    }
+
+    before { server.start }
+
+    it "creates a switch route" do
+      expect(server.web.routes['GET'].find { |route|
+        route.first.match('/light')
+      }).to be_true
+    end
   end
 
   describe "#start" do
