@@ -39,9 +39,21 @@ module WhippedCream
 
     def bootstrap
       ssh_exec <<-SCRIPT
-        dpkg --status ruby1.9.3 > /dev/null ||
-          (time sudo apt-get update &&
-           time sudo apt-get install ruby1.9.3 -y)
+        if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
+          source "$HOME/.rvm/scripts/rvm"
+          alias sudo=rvmsudo
+          which ruby ||
+            rvm install 1.9.3
+        elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
+          source "/usr/local/rvm/scripts/rvm"
+          alias sudo=rvmsudo
+          which ruby ||
+            rvm install 1.9.3
+        else
+          dpkg --status ruby1.9.3 > /dev/null ||
+            (time sudo apt-get update &&
+             time sudo apt-get install ruby1.9.3 -y)
+        fi
 
         which whipped-cream ||
           time sudo gem install whipped-cream --no-ri --no-rdoc --pre
@@ -60,6 +72,13 @@ module WhippedCream
 
     def run_plugin
       ssh_exec <<-SCRIPT
+        if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
+          source "$HOME/.rvm/scripts/rvm"
+          alias sudo=rvmsudo
+        elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
+          source "/usr/local/rvm/scripts/rvm"
+          alias sudo=rvmsudo
+        fi
         cd ~/whipped-cream
         sudo whipped-cream start #{plugin_filename} --daemonize
       SCRIPT
