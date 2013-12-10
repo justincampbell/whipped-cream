@@ -19,6 +19,14 @@ describe WhippedCream::Deployer do
   its(:plugin_filename) { should eq(plugin_filename) }
   its(:pi_address) { should eq(pi_address) }
 
+  context "with a port" do
+    let(:pi_address) { "192.168.0.123:2222" }
+
+    it "adds a port to the connection arguments" do
+      expect(deployer.connection_arguments.last[:port]).to eq("2222")
+    end
+  end
+
   describe "#scp" do
     it "tries to connect with pi:raspberry" do
       expect(Net::SCP).to receive(:start).with(

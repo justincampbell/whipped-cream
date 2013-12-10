@@ -26,11 +26,16 @@ module WhippedCream
       @ssh ||= Net::SSH.start(*connection_arguments)
     end
 
-    private
-
     def connection_arguments
-      [pi_address, 'pi', { password: 'raspberry' }]
+      options = { password: 'raspberry' }
+
+      ip_address, port = pi_address.split(':')
+      options.merge!(port: port) if port
+
+      [ip_address, 'pi', options]
     end
+
+    private
 
     def bootstrap
       ssh_exec <<-SCRIPT
