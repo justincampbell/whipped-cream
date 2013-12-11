@@ -9,7 +9,9 @@ task default: :ci
 desc "Run all test suites"
 task ci: [:spec, :cane]
 
-RSpec::Core::RakeTask.new
+RSpec::Core::RakeTask.new do |rspec|
+  rspec.rspec_opts = '--tag ~acceptance'
+end
 
 Cane::RakeTask.new do |cane|
   cane.add_threshold 'coverage/.last_run.json', :>=, 90
