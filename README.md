@@ -150,6 +150,11 @@ sensor "Pi Uptime" do
 end
 ```
 
+## Testing
+
+* Run the tests with `rake`
+* Deploy to a Vagrant box with `rake vagrant:deploy`
+
 ## Thanks
 
 Web UI designed by [Ashton Harris](http://ashtonharris.me).
