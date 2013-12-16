@@ -160,3 +160,7 @@ end
 Web UI designed by [Ashton Harris](http://ashtonharris.me).
 
 Logo designed by [Jeff Bloch](http://www.redbubble.com/people/jabbtees).
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/justincampbell/whipped-cream/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
