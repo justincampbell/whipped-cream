@@ -14,7 +14,7 @@ describe WhippedCream::Runner do
   context "with a button" do
     let(:plugin) {
       WhippedCream::Plugin.build do
-        button "Open/Close", pin: 1
+        button "Open/Close", pin: 4
       end
     }
 
@@ -22,7 +22,7 @@ describe WhippedCream::Runner do
       pin = runner.pins[:open_close]
 
       expect(pin).to be_a(PiPiper::Pin)
-      expect(pin.pin).to eq(1)
+      expect(pin.pin).to eq(4)
       expect(pin.direction).to eq(:out)
     end
 
@@ -40,7 +40,7 @@ describe WhippedCream::Runner do
   context "with a sensor" do
     let(:plugin) {
       WhippedCream::Plugin.build do
-        sensor "Door", pin: 2, low: "Open", high: "Closed"
+        sensor "Door", pin: 17, low: "Open", high: "Closed"
       end
     }
 
@@ -48,7 +48,7 @@ describe WhippedCream::Runner do
       pin = runner.pins[:door]
 
       expect(pin).to be_a(PiPiper::Pin)
-      expect(pin.pin).to eq(2)
+      expect(pin.pin).to eq(17)
       expect(pin.direction).to eq(:in)
     end
 
@@ -81,7 +81,7 @@ describe WhippedCream::Runner do
   context "with a switch" do
     let(:plugin) {
       WhippedCream::Plugin.build do
-        switch "Light", pin: 3
+        switch "Light", pin: 18
       end
     }
 
@@ -89,7 +89,7 @@ describe WhippedCream::Runner do
       pin = runner.pins[:light]
 
       expect(pin).to be_a(PiPiper::Pin)
-      expect(pin.pin).to eq(3)
+      expect(pin.pin).to eq(18)
       expect(pin.direction).to eq(:out)
     end
 

@@ -13,7 +13,7 @@ describe WhippedCream::Builder do
     <<-PLUGIN
         name "Garage"
 
-        button "Open/Close", pin: 1
+        button "Open/Close", pin: 4
     PLUGIN
   }
 
@@ -89,7 +89,7 @@ describe WhippedCream::Builder do
     context "with a button" do
       let(:plugin) {
         described_class.build do
-          button "Open/Close", pin: 1 do
+          button "Open/Close", pin: 4 do
             :tap
           end
         end
@@ -101,7 +101,7 @@ describe WhippedCream::Builder do
         button = plugin.buttons.first
 
         expect(button.name).to eq("Open/Close")
-        expect(button.pin).to eq(1)
+        expect(button.pin).to eq(4)
       end
     end
   end
@@ -115,7 +115,7 @@ describe WhippedCream::Builder do
       let(:plugin) {
         described_class.build do
           sensor "Door",
-            pin: 2,
+            pin: 17,
             low: "Closed",
             high: "Open",
             on_high: :door_opened
@@ -128,7 +128,7 @@ describe WhippedCream::Builder do
         sensor = plugin.sensors.first
 
         expect(sensor.name).to eq("Door")
-        expect(sensor.pin).to eq(2)
+        expect(sensor.pin).to eq(17)
         expect(sensor.low).to eq("Closed")
         expect(sensor.high).to eq("Open")
         expect(sensor.on_high).to eq(:door_opened)
@@ -145,7 +145,7 @@ describe WhippedCream::Builder do
     context "with a switch" do
       let(:plugin) {
         described_class.build do
-          switch "Light", pin: 3
+          switch "Light", pin: 18
         end
       }
 
@@ -155,7 +155,7 @@ describe WhippedCream::Builder do
         switch = plugin.switches.first
 
         expect(switch.name).to eq("Light")
-        expect(switch.pin).to eq(3)
+        expect(switch.pin).to eq(18)
       end
     end
   end

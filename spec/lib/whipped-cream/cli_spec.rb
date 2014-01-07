@@ -12,7 +12,7 @@ describe WhippedCream::CLI do
     <<-PLUGIN
         name "Garage"
 
-        button "Open/Close", pin: 1
+        button "Open/Close", pin: 4
     PLUGIN
   }
   let(:pi_address) { "192.168.0.123" }
