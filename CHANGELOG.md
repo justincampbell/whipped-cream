@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+* Validate GPIO pin numbers (@rringler)
+
 ## 0.1.0
 
 * Support deploying to a Pi with RVM installed (@shobhitic)
