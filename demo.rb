@@ -1,10 +1,10 @@
 name "Demo"
 
-button "Open/Close", pin: 1
+button "Open/Close", pin: 4
 
-sensor "Door", pin: 2, high: "Open", low: "Closed"
+sensor "Door", pin: 17, high: "Open", low: "Closed"
 
-switch "Light", pin: 3
+switch "Light", pin: 18
 
 sensor "Ruby Version" do
   RUBY_VERSION

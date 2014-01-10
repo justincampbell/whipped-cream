@@ -5,7 +5,7 @@ describe WhippedCream::Server do
 
   let(:plugin) {
     WhippedCream::Plugin.build do
-      button "Open/Close", pin: 1
+      button "Open/Close", pin: 4
     end
   }
 
@@ -28,7 +28,7 @@ describe WhippedCream::Server do
   context "with a button" do
     let(:plugin) {
       WhippedCream::Plugin.build do
-        button "Open/Close", pin: 1
+        button "Open/Close", pin: 4
       end
     }
 
@@ -44,7 +44,7 @@ describe WhippedCream::Server do
   context "with a switch" do
     let(:plugin) {
       WhippedCream::Plugin.build do
-        switch "Light", pin: 1
+        switch "Light", pin: 18
       end
     }
 

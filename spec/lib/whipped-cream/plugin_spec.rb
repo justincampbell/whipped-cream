@@ -39,7 +39,7 @@ describe WhippedCream::Plugin do
 
   context "with a button" do
     before do
-      plugin.controls << WhippedCream::Button.new("Open/Close")
+      plugin.controls << WhippedCream::Button.new("Open/Close", pin: 4)
     end
 
     its(:controls) { should_not be_empty }
