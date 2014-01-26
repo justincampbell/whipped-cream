@@ -7,7 +7,7 @@ describe WhippedCream::CLI do
   subject { cli }
   let(:cli) { described_class.new }
 
-  let(:plugin_filename) { File.join(tmpdir, "garage.rb") }
+  let(:plugin_filename) { File.join(tmpdir, "garage") }
   let(:plugin_string) {
     <<-PLUGIN
         name "Garage"
@@ -19,7 +19,7 @@ describe WhippedCream::CLI do
   let(:tmpdir) { Dir.mktmpdir }
 
   before do
-    File.open(plugin_filename, 'w') { |file| file.write plugin_string }
+    File.open("#{plugin_filename}.rb", 'w') { |file| file.write plugin_string }
   end
 
   after do

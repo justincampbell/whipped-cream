@@ -49,7 +49,8 @@ module WhippedCream
 
     no_tasks do
       def resolve_plugin(name)
-        name # TODO: resolve name to filename
+        name += '.rb' unless name.split('.').last == 'rb'
+        name
       end
     end
   end
