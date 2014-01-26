@@ -96,13 +96,13 @@ describe WhippedCream::Runner do
     it "defines a light method that switches the pin on and off" do
       pin = runner.pins[:light]
 
-      expect(pin.read).to eq(0)
-      runner.light
-      expect(pin.read).to eq(1)
-      runner.light
-      expect(pin.read).to eq(0)
-      runner.light
-      expect(pin.read).to eq(1)
+      expect(runner.read_pin(pin)).to eq(:off)
+      runner.light(:on)
+      expect(runner.read_pin(pin)).to eq(:on)
+      runner.light(:off)
+      expect(runner.read_pin(pin)).to eq(:off)
+      runner.light(:on)
+      expect(runner.read_pin(pin)).to eq(:on)
     end
   end
 end
