@@ -107,11 +107,9 @@ module WhippedCream
     end
 
     def set_pin(pin, state)
-      if state.to_sym == :on
-        pin.on
-      elsif state.to_sym == :off
-        pin.off
-      end
+      return if read_pin(pin) == state
+
+      pin.send(state)
     end
   end
 end
