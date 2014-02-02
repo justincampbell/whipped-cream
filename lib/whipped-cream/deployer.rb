@@ -55,6 +55,12 @@ module WhippedCream
              time sudo apt-get install ruby1.9.3 -y)
         fi
 
+        dpkg --status avahi-daemon > /dev/null ||
+          (time sudo apt-get update &&
+           time sudo apt-get install avahi-daemon &&
+           time sudo apt-get install libavahi-compat-libdnssd-dev &&
+           time sudo insserv avahi-daemon)
+
         which whipped-cream ||
           time sudo gem install whipped-cream --no-ri --no-rdoc --pre
 
