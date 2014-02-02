@@ -1,4 +1,5 @@
 require 'thor'
+require 'dnssd'
 
 module WhippedCream
   # The CLI gets invoked from the binary, and encapsulates all user interaction
@@ -47,9 +48,57 @@ module WhippedCream
       server.start
     end
 
+    desc "discover", "Discovers any whipped-cream servers on the local network"
+    def discover
+      services = browse_services('_whipped-cream._tcp.')
+
+      services.select { |_, service| service.flags.add? }.each do |_, service|
+        host = resolve_service(service)
+
+        puts "#{host[:address]}:#{host[:port]}\t#{host[:name]}"
+      end
+    end
+
     no_tasks do
       def resolve_plugin(name)
         name # TODO: resolve name to filename
+      end
+
+      def browse_services(service_type)
+        services = {}
+
+        DNSSD::Service.new.browse(service_type) do |reply|
+          services[reply.fullname] = reply
+          break unless reply.flags.more_coming?
+        end
+
+        services
+      end
+
+      def resolve_service(service)
+        host = {}
+
+        DNSSD::Service.new.resolve(service) do |reply|
+          address = get_ipv4_address(reply)
+
+          host[:name]    = "#{reply.name}"
+          host[:address] = "#{address}"
+          host[:port]    = "#{reply.port}"
+          break unless reply.flags.more_coming?
+        end
+
+        host
+      end
+
+      def get_ipv4_address(reply)
+        address = nil
+
+        DNSSD::Service.new.getaddrinfo(reply.target, 1) do |addrinfo|
+          address = addrinfo.address
+          break unless addrinfo.flags.more_coming?
+        end
+
+        address
       end
     end
   end

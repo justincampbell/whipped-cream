@@ -83,12 +83,80 @@ describe WhippedCream::CLI do
     end
   end
 
+  describe "#discover" do
+    let(:service_type) { "_whipped-cream._tcp." }
+    let(:services_double) {
+      { "Test._whipped-cream._tcp.local." => double("reply") }
+    }
+    let(:host_double) {
+      { name: "Test",
+        address: "192.168.0.100",
+        port: "8080" }
+    }
+    let(:output_string) {
+      "#{host_double[:address]}:#{host_double[:port]}\t#{host_double[:name]}"
+    }
+
+    it "displays the host information for any running servers" do
+      cli.should_receive(:browse_services)
+         .with(service_type)
+         .and_return(services_double)
+
+      cli.should_receive(:resolve_service)
+         .and_return(host_double)
+
+      services_double.should_receive(:select).and_return(services_double)
+
+      expect(cli).to receive(:puts).with(output_string)
+
+      cli.discover
+    end
+  end
+
   describe "#usage" do
     it "displays a banner and help" do
       expect(cli).to receive(:puts).exactly(2).times
       expect(cli).to receive(:help)
 
       cli.usage
+    end
+  end
+
+  describe "#browse_services" do
+    let(:service_type) { '_whipped-cream._tcp.' }
+
+    it "should call DNSSD::Services#browse" do
+      DNSSD::Service.any_instance
+                    .should_receive(:browse)
+                    .with(service_type)
+
+      cli.browse_services(service_type)
+    end
+  end
+
+  describe "#resolve_service" do
+    let(:service_double) { double("service") }
+
+    it "should call DNSSD::Services#resolve" do
+      DNSSD::Service.any_instance
+                    .should_receive(:resolve)
+                    .with(service_double)
+
+      cli.resolve_service(service_double)
+    end
+  end
+
+  describe "#get_ipv4_address" do
+    let(:reply_double) { double("dnssd_reply") }
+
+    it "should call DNSSD::Services#getaddrinfo" do
+      reply_double.stub(:target).and_return("test_host")
+
+      DNSSD::Service.any_instance
+                    .should_receive(:getaddrinfo)
+                    .with(reply_double.target, 1)
+
+      cli.get_ipv4_address(reply_double)
     end
   end
 end

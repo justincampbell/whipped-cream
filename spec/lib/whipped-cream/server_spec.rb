@@ -66,6 +66,17 @@ describe WhippedCream::Server do
       server.start
     end
 
+    it "registers the server via mDNS" do
+      expect(DNSSD).to receive(:register).with(
+        server.runner.name || "<none>",
+        '_whipped-cream._tcp',
+        nil,
+        server.options.fetch(:port, 8080)
+      )
+
+      server.start
+    end
+
     context "with daemonize: true" do
       let(:options) {
         { daemonize: true }
