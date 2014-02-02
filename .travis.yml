@@ -9,4 +9,3 @@ matrix:
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq avahi-daemon libavahi-compat-libdnssd-dev
-  - sudo insserv avahi-daemon
