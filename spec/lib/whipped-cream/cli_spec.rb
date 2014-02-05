@@ -7,7 +7,7 @@ describe WhippedCream::CLI do
   subject { cli }
   let(:cli) { described_class.new }
 
-  let(:plugin_filename) { File.join(tmpdir, "garage.rb") }
+  let(:plugin_filename) { File.join(tmpdir, "garage") }
   let(:plugin_string) {
     <<-PLUGIN
         name "Garage"
@@ -19,7 +19,7 @@ describe WhippedCream::CLI do
   let(:tmpdir) { Dir.mktmpdir }
 
   before do
-    File.open(plugin_filename, 'w') { |file| file.write plugin_string }
+    File.open("#{plugin_filename}.rb", 'w') { |file| file.write plugin_string }
   end
 
   after do
@@ -48,11 +48,22 @@ describe WhippedCream::CLI do
   describe "#start" do
     let(:server_double) { double(WhippedCream::Server) }
 
-    it "starts a server for the plugin" do
-      expect(WhippedCream::Server).to receive(:new) { server_double }
-      expect(server_double).to receive(:start)
+    context "with a filename and extension" do
+      it "starts a server for the plugin" do
+        expect(WhippedCream::Server).to receive(:new) { server_double }
+        expect(server_double).to receive(:start)
 
-      cli.start(plugin_filename)
+        cli.start("#{plugin_filename}.rb")
+      end
+    end
+
+    context "with just a filename and no extension" do
+      it "starts a server for the plugin" do
+        expect(WhippedCream::Server).to receive(:new) { server_double }
+        expect(server_double).to receive(:start)
+
+        cli.start(plugin_filename)
+      end
     end
 
     context "with --daemonize" do
