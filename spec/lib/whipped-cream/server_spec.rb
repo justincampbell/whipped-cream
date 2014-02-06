@@ -51,7 +51,7 @@ describe WhippedCream::Server do
     before { server.start }
 
     it "creates a switch route" do
-      expect(server.web.routes['GET'].find { |route|
+      expect(server.web.routes['POST'].find { |route|
         route.first.match('/light')
       }).to be_true
     end

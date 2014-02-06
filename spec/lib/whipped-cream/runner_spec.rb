@@ -29,9 +29,7 @@ describe WhippedCream::Runner do
     it "defines an open_close method that taps the pin" do
       pin = runner.pins[:open_close]
 
-      expect(pin).to receive(:on)
-      expect(runner).to receive(:sleep).with(0.25)
-      expect(pin).to receive(:off)
+      expect(runner).to receive(:tap_pin).with(pin).and_call_original
 
       runner.open_close.join
     end
@@ -96,13 +94,59 @@ describe WhippedCream::Runner do
     it "defines a light method that switches the pin on and off" do
       pin = runner.pins[:light]
 
-      expect(pin.read).to eq(0)
-      runner.light
-      expect(pin.read).to eq(1)
-      runner.light
-      expect(pin.read).to eq(0)
-      runner.light
-      expect(pin.read).to eq(1)
+      expect(runner.read_pin(pin)).to eq(:off)
+      runner.light(:on)
+      expect(runner.read_pin(pin)).to eq(:on)
+      runner.light(:off)
+      expect(runner.read_pin(pin)).to eq(:off)
+      runner.light(:on)
+      expect(runner.read_pin(pin)).to eq(:on)
+    end
+  end
+
+  describe "#tap_pin" do
+    let(:plugin) {
+      WhippedCream::Plugin.build do
+        button "Open/Close", pin: 4
+      end
+    }
+
+    it "turns the pin on momentarily and then turns it off" do
+      pin = runner.pins[:garage]
+
+      expect(runner).to receive(:set_pin).with(pin, :on)
+      expect(runner).to receive(:sleep).with(0.25)
+      expect(runner).to receive(:set_pin).with(pin, :off)
+
+      runner.send(:tap_pin, pin).join
+    end
+  end
+
+  describe "#set_pin" do
+    let(:plugin) {
+      WhippedCream::Plugin.build do
+        switch "Light", pin: 18
+      end
+    }
+    let(:pin) { runner.pins[:light] }
+    before(:each) { runner.send(:set_pin, pin, :off) }
+
+    it "orders the desired pin state when different from the current state" do
+      expect(pin).to receive(:on).and_call_original
+      runner.send(:set_pin, pin, :on)
+
+      expect(pin).to receive(:off)
+      runner.send(:set_pin, pin, :off)
+    end
+
+    it "does nothing when the ordered pin state matches the current state" do
+      expect(pin).not_to receive(:off)
+      runner.send(:set_pin, pin, :off)
+
+      runner.send(:set_pin, pin, :on)
+
+      expect(pin).not_to receive(:on)
+      runner.send(:set_pin, pin, :on)
     end
   end
 end

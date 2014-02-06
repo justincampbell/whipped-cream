@@ -31,6 +31,10 @@ module WhippedCream
       @pins ||= {}
     end
 
+    def read_pin(pin)
+      pin.read.zero? ? :off : :on
+    end
+
     private
 
     def configure
@@ -65,7 +69,7 @@ module WhippedCream
       define_singleton_method sensor.id do
         pin = pins[sensor.id]
 
-        pin.read == 1 ? sensor.high : sensor.low
+        read_pin(pin) == :on ? sensor.high : sensor.low
       end
     end
 
@@ -79,8 +83,8 @@ module WhippedCream
       plugin.switches.each do |switch|
         create_pin switch, direction: :out
 
-        define_singleton_method switch.id do
-          toggle_pin(pins[switch.id])
+        define_singleton_method switch.id do |state|
+          set_pin(pins[switch.id], state)
         end
       end
     end
@@ -94,20 +98,18 @@ module WhippedCream
     end
 
     def tap_pin(pin)
-      pin.on
+      set_pin(pin, :on)
 
       Thread.new {
         sleep 0.25
-        pin.off
+        set_pin(pin, :off)
       }
     end
 
-    def toggle_pin(pin)
-      if pin.read.nonzero?
-        pin.off
-      else
-        pin.on
-      end
+    def set_pin(pin, state)
+      return if read_pin(pin) == state
+
+      pin.send(state)
     end
   end
 end

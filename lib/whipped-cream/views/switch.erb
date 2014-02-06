@@ -1,7 +1,17 @@
 <div class="item">
   <h2><%= control.name %></h2>
-  <p><%= runner.pins[control.id].read.nonzero? ? "On" : "Off" %></p>
-  <form action="/<%= control.id %>" method="get">
-    <input type="submit" value="<%= runner.pins[control.id].read.nonzero? ? "Off" : "On" %>">
+  <% pin = runner.pins[control.id] %>
+  <% pin_state = runner.read_pin(pin) %>
+  <p><%= pin_state.to_s.capitalize %></p>
+  <form action="/<%= control.id %>" method="post">
+    <input type="radio"
+           name="state"
+           value="on"
+           <%= "checked" if pin_state == :on %>> On <br />
+    <input type="radio"
+           name="state"
+           value="off"
+           <%= "checked" if pin_state == :off %>> Off <br />
+    <input type="submit" value="Submit">
   </form>
 </div>

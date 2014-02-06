@@ -63,8 +63,8 @@ module WhippedCream
 
     def build_switch_routes
       plugin.switches.each do |switch|
-        web.get "/#{switch.id}" do
-          runner.send switch.id
+        web.post "/#{switch.id}" do
+          runner.send switch.id, params[:state]
           redirect to('/')
         end
       end
