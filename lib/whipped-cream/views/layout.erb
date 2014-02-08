@@ -2,12 +2,32 @@
 <html>
   <head>
     <title><%= title %></title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link href="/assets/stylesheets/baseline.compress.css" media="screen" rel="stylesheet" type="text/css">
     <link href="/assets/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css">
     <meta content="width=device-width" name="viewport">
   </head>
   <body>
-    <h1><%= title %></h1>
+    <div class="title">
+      <p><%= title %></p>
+    </div>
+
+    <ul class="menubar default">
+      <li class="menu">
+        <i class="fa fa-bars fa-2x"></i>
+        <ul>
+          <li class="label">Other Networked Pis:</li>
+          <% if remote_servers.any? %>
+            <% remote_servers.each do |server| %>
+              <li><%= server_link(server) %></li>
+            <% end %>
+          <% else %>
+            <li>No servers found</li>
+          <% end %>
+        </ul>
+      </li>
+    </ul>
+
     <%= yield %>
   </body>
 </html>
