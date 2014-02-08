@@ -54,3 +54,32 @@ input[type="submit"]
     top: 0
   input[type="submit"]
     width: 100%
+
+ul.menubar
+  +box-shadow(1px 1px 3px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.5))
+  font-family: helvetica
+  font-size: 14px
+  z-index: 1
+  margin-bottom: 20px
+  &.default
+    +menubar(#2C3E50, white, 50px, 4px)
+    border: 1px solid #000
+  li.menu
+    float: right
+    margin-right: 14px
+  li ul li.label
+    text-decoration: underline
+    padding: 10px 10px
+
+div.title
+  position: absolute
+  top: 14px
+  left: 50%
+  width: 400px
+  margin-left: -200px
+  z-index: 2
+  p
+    color: #fff
+    font-size: 1.5em
+    font-weight: 700
+    text-align: center
