@@ -2,7 +2,7 @@
   <% pin = runner.pins[control.id] %>
   <% pin_state = runner.read_pin(pin) %>
   <form action="/<%= control.id %>" method="post">
-    <label id="ios-switch">
+    <label class="ios-switch-label">
       <h2><%= control.name %></h2>
       <input type="hidden" name="state" value="off" />
       <input type="checkbox"

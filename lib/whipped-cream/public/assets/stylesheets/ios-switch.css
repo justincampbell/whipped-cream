@@ -76,11 +76,11 @@
 
 }
 
-label#ios-switch > h2 {
+label.ios-switch-label > h2 {
   margin-top: 7px;
 }
 
-label#ios-switch > div {
+label.ios-switch-label > div {
   float: right;
   margin-right: 0;
 }
