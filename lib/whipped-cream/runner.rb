@@ -48,7 +48,7 @@ module WhippedCream
         create_pin button, direction: :out
 
         define_singleton_method button.id do
-          tap_pin(pins[button.id])
+          tap_pin(pins[button.id], button.duration)
         end
       end
     end
@@ -97,11 +97,11 @@ module WhippedCream
       pins[control.id] = PiPiper::Pin.new(options)
     end
 
-    def tap_pin(pin)
+    def tap_pin(pin, duration)
       set_pin(pin, :on)
 
       Thread.new {
-        sleep 0.25
+        sleep duration
         set_pin(pin, :off)
       }
     end
