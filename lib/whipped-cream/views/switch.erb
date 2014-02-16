@@ -1,17 +1,17 @@
 <div class="item">
-  <h2><%= control.name %></h2>
   <% pin = runner.pins[control.id] %>
   <% pin_state = runner.read_pin(pin) %>
-  <p><%= pin_state.to_s.capitalize %></p>
   <form action="/<%= control.id %>" method="post">
-    <input type="radio"
-           name="state"
-           value="on"
-           <%= "checked" if pin_state == :on %>> On <br />
-    <input type="radio"
-           name="state"
-           value="off"
-           <%= "checked" if pin_state == :off %>> Off <br />
+    <label class="ios-switch-label">
+      <h2><%= control.name %></h2>
+      <input type="hidden" name="state" value="off" />
+      <input type="checkbox"
+             name="state"
+             class="ios-switch"
+             value="on"
+             <%= "checked" if pin_state == :on %> />
+      <div></div>
+    </label>
     <input type="submit" value="Submit">
   </form>
 </div>
