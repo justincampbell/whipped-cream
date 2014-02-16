@@ -35,7 +35,7 @@ describe WhippedCream::Server do
     before { server.start }
 
     it "creates a button route" do
-      expect(server.web.routes['GET'].find { |route|
+      expect(server.web.routes['POST'].find { |route|
           route.first.match('/open_close')
       }).to be_true
     end

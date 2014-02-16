@@ -29,7 +29,7 @@ describe WhippedCream::Runner do
     it "defines an open_close method that taps the pin" do
       pin = runner.pins[:open_close]
 
-      expect(runner).to receive(:tap_pin).with(pin).and_call_original
+      expect(runner).to receive(:tap_pin).with(pin, 0.25).and_call_original
 
       runner.open_close.join
     end
@@ -107,7 +107,7 @@ describe WhippedCream::Runner do
   describe "#tap_pin" do
     let(:plugin) {
       WhippedCream::Plugin.build do
-        button "Open/Close", pin: 4
+        button "Open/Close", pin: 4, duration: 1
       end
     }
 
@@ -115,10 +115,10 @@ describe WhippedCream::Runner do
       pin = runner.pins[:garage]
 
       expect(runner).to receive(:set_pin).with(pin, :on)
-      expect(runner).to receive(:sleep).with(0.25)
+      expect(runner).to receive(:sleep).with(1)
       expect(runner).to receive(:set_pin).with(pin, :off)
 
-      runner.send(:tap_pin, pin).join
+      runner.send(:tap_pin, pin, 1).join
     end
   end
 
