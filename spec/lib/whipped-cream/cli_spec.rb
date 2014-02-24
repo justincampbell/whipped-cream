@@ -96,9 +96,7 @@ describe WhippedCream::CLI do
 
   describe "#discover" do
     let(:service_type) { "_whipped-cream._tcp." }
-    let(:services_double) {
-      { "Test._whipped-cream._tcp.local." => double("reply") }
-    }
+    let(:services_double) { [double("reply")] }
     let(:host_double) {
       { name: "Test",
         address: "192.168.0.100",
@@ -114,9 +112,8 @@ describe WhippedCream::CLI do
          .and_return(services_double)
 
       cli.should_receive(:resolve_service)
+         .with(services_double.first)
          .and_return(host_double)
-
-      services_double.should_receive(:select).and_return(services_double)
 
       expect(cli).to receive(:puts).with(output_string)
 

@@ -1,0 +1,60 @@
+// The Mixin (this should be it's own file and included as needed)
+// ---------------------------------------------------------------
+// * gradients are generated.. just add color.
+// * Add font color, to go with the color you use
+// * Then the height of the menubar. (font size is set where you call the mixin)
+// * there is an option to put a radius on the menubar or you can leave it squared.
+
+=menubar($color, $font-color, $height, $radius: false)
+  +background-image(linear-gradient(lighten($color, 10%), darken($color, 20%)))
+  @if $radius != false
+    +border-radius($radius)
+  height: $height
+  a, li
+    color: $font-color
+    text-decoration: none
+    position: relative
+    padding: 0 10px
+    display: block
+    &:hover
+      +background-image(linear-gradient(darken($color, 35%), darken($color, 20%)))
+      ul
+        display: block
+  li
+    +inline-block
+    line-height: $height
+    border-right: 1px solid rgba(255, 255, 255, 0.25)
+    border-left: 1px solid darken($color, 20%)
+    &:first-child
+      border-left: none
+      @if $radius != false
+        +border-left-radius($radius)
+    &:last-child
+      +box-shadow(inset -1px 0 0 darken($color, 20%))
+    &:hover
+      cursor: default
+    ul
+      +border-bottom-radius(8px)
+      +box-shadow(1px 1px 3px rgba(0, 0, 0, 0.35))
+      display: none
+      position: absolute
+      top: 100%
+      right: 0 // was left: 0
+      background: darken($color, 20%)
+      padding-bottom: 10px
+      min-width: 100%
+      z-index: 2
+      li
+        display: block
+        text-align: right
+        height: auto
+        line-height: 1
+        padding: 3px 10px // was 0
+        white-space: nowrap
+        &:hover
+          background: transparent
+        a
+          text-align: right
+          padding: 3px 10px
+          &:hover
+            background: rgba(255, 255, 255, 0.25)
