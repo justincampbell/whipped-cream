@@ -104,9 +104,20 @@ Whipped Cream creates a web page which maps HTML controls to GPIO pins.
 You'll want to use the pin numbering from the BCM chip (not the actual pin
 number, and not the WiringPi numbers).
 
-![GPIO pins](http://f.cl.ly/items/1u1u3q1m3e1L333E130N/gpio-pinout-rev2.jpg)
-
-from [HobbyTronics](http://www.hobbytronics.co.uk/raspberry-pi-gpio-pinout)
+<table>
+  <tr>
+    <th>Raspberry Pi Rev1</th><th>Raspberry Pi Rev2</th>
+  </tr>
+  <tr>
+    <td><img src="http://imgur.com/Nq6sADj.png" alt="Raspberry Pi Rev1"/></td>
+    <td><img src="http://imgur.com/QGoEzTi.png" alt="Raspberry Pi Rev2"/></td>
+  </tr>
+  <tr>
+    <td colspan=2 align="center">
+      Images from <a href="http://www.hobbytronics.co.uk/raspberry-pi-gpio-pinout">HobbyTronics</a>
+    </td>
+  </tr>
+</table>
 
 ### Controls
 
