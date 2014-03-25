@@ -57,8 +57,8 @@ module WhippedCream
 
         dpkg --status avahi-daemon > /dev/null ||
           (time sudo apt-get update &&
-           time sudo apt-get install avahi-daemon &&
-           time sudo apt-get install libavahi-compat-libdnssd-dev &&
+           time sudo apt-get install \
+             avahi-daemon libavahi-compat-libdnssd-dev -y &&
            time sudo insserv avahi-daemon)
 
         which whipped-cream ||
