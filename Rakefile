@@ -2,6 +2,7 @@ require "bundler/gem_tasks"
 require 'cane/rake_task'
 require 'rspec/core/rake_task'
 
+VAGRANT_PORT = ENV['VAGRANT_PORT'] || 2222
 ENV['coverage'] = 'true'
 
 task default: :ci
@@ -22,9 +23,9 @@ task :vagrant do
   [
     ['vagrant up',
      'Bringing up Debian Wheezy Vagrant box'],
-    ['bin/whipped-cream deploy demo.rb 127.0.0.1:2222',
+    ["bin/whipped-cream deploy demo.rb 127.0.0.1:#{VAGRANT_PORT}",
      'Performing initial deploy'],
-    ['bin/whipped-cream deploy demo.rb 127.0.0.1:2222',
+    ["bin/whipped-cream deploy demo.rb 127.0.0.1:#{VAGRANT_PORT}",
      'Performing subsequent deploy'],
     ['REMOTE_URL="http://127.0.0.1:8080" rspec --tag acceptance',
      'Running acceptance tests against Vagrant box']
