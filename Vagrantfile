@@ -8,6 +8,8 @@ Vagrant.configure('2') do |config|
     config.vm.network :forwarded_port, guest: guest, host: host
   end
 
+  config.vm.synced_folder 'pkg/', '/tmp/pkg/'
+
   config.vm.provision :shell, inline: <<-SCRIPT
     set -x
     adduser --disabled-login pi

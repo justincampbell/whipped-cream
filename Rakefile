@@ -23,6 +23,8 @@ task :vagrant do
   [
     ['vagrant up',
      'Bringing up Debian Wheezy Vagrant box'],
+    ['rake build',
+     'Building the gem'],
     ["bin/whipped-cream deploy demo.rb 127.0.0.1:#{VAGRANT_PORT}",
      'Performing initial deploy'],
     ["bin/whipped-cream deploy demo.rb 127.0.0.1:#{VAGRANT_PORT}",

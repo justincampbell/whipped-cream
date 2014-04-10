@@ -61,8 +61,14 @@ module WhippedCream
              avahi-daemon libavahi-compat-libdnssd-dev -y &&
            time sudo insserv avahi-daemon)
 
-        which whipped-cream ||
-          time sudo gem install whipped-cream --no-ri --no-rdoc --pre
+        if ! which whipped-cream; then
+          if [ -d /tmp/pkg ]; then
+            find /tmp/pkg | tail -n 1 | xargs -I {} \
+              sudo gem install {} --no-ri --no-rdoc
+          else
+            time sudo gem install whipped-cream --no-ri --no-rdoc --pre
+          fi
+        fi
 
         mkdir -p ~/whipped-cream/
       SCRIPT
