@@ -29,7 +29,7 @@ task :vagrant do
      'Performing initial deploy'],
     ["bin/whipped-cream deploy demo.rb 127.0.0.1:#{VAGRANT_PORT}",
      'Performing subsequent deploy'],
-    ['REMOTE_URL="http://127.0.0.1:8080" rspec --tag acceptance',
+    ['REMOTE_URL="http://localhost:8080" rspec --tag acceptance',
      'Running acceptance tests against Vagrant box']
   ].each do |command, description|
     puts yellow(description)
