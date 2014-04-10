@@ -29,15 +29,12 @@ module WhippedCream
     end
 
     def find_remote_servers
-      @remote_servers = cli.discover.map do |service|
-        cli.resolve_service(service)
-      end.reject do |server|
-        server[:name] == title
-      end
+      @remote_servers = discoverer.discover
+                                  .reject { |server| server[:name] == title }
     end
 
-    def cli
-      @CLI ||= CLI.new
+    def discoverer
+      @discoverer ||= Discoverer.new
     end
 
     def server_link(server)

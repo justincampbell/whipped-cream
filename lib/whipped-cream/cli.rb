@@ -49,7 +49,7 @@ module WhippedCream
 
     desc "discover", "Discovers any whipped-cream servers on the local network"
     def discover
-      Discoverer.discover '_whipped-cream._tcp.'
+      Discoverer.list
     end
 
     no_tasks do

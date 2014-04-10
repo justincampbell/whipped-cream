@@ -26,6 +26,10 @@ module WhippedCream
       @web ||= Web
     end
 
+    def discoverer
+      @discoverer ||= Discoverer.new
+    end
+
     private
 
     def ensure_runner_started
@@ -54,7 +58,7 @@ module WhippedCream
       domain = nil
       port = rack_options[:Port]
 
-      Discoverer.register_server name, service, domain, port
+      discoverer.register_server(name, service, domain, port)
     end
 
     def build_routes
