@@ -40,7 +40,7 @@ module WhippedCream
     def rack_options
       {
         app: web,
-        Port: options.fetch(:port, 8080),
+        Port: options.fetch(:port, 35511),
         daemonize: !!options[:daemonize]
       }
     end

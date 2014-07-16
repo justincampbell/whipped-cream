@@ -60,7 +60,7 @@ describe WhippedCream::Server do
   describe "#start" do
     it "starts a Rack server" do
       expect(Rack::Server).to receive(:start).with(
-        app: WhippedCream::Web, Port: 8080, daemonize: false
+        app: WhippedCream::Web, Port: 35511, daemonize: false
       )
 
       server.start
@@ -71,7 +71,7 @@ describe WhippedCream::Server do
         server.runner.name || "<none>",
         '_whipped-cream._tcp',
         nil,
-        server.options.fetch(:port, 8080)
+        server.options.fetch(:port, 35511)
       )
 
       server.start
@@ -84,7 +84,7 @@ describe WhippedCream::Server do
 
       it "starts the Rack server daemonized" do
         expect(Rack::Server).to receive(:start).with(
-          app: WhippedCream::Web, Port: 8080, daemonize: true
+          app: WhippedCream::Web, Port: 35511, daemonize: true
         )
 
         server.start

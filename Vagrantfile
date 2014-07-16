@@ -3,7 +3,7 @@ Vagrant.configure('2') do |config|
   config.vm.box_url = 'https://dl.dropboxusercontent.com/u/86066173/debian-wheezy.box'
 
   {
-    80 => 8080
+    35511 => 35511
   }.each do |guest, host|
     config.vm.network :forwarded_port, guest: guest, host: host
   end

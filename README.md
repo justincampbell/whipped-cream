@@ -89,11 +89,11 @@ That's right, we're still on your computer, not your Raspberry Pi.
 $ whipped-cream demo
 [2013-10-11 07:59:19] INFO  WEBrick 1.3.1
 [2013-10-11 07:59:19] INFO  ruby 1.9.3 (2013-06-27) [x86_64-darwin12.4.0]
-[2013-10-11 07:59:19] INFO  WEBrick::HTTPServer#start: pid=5351 port=8080
+[2013-10-11 07:59:19] INFO  WEBrick::HTTPServer#start: pid=5351 port=35511
 ```
 
 You should now be able to point your browser to
-[http://127.0.0.1:8080](http://127.0.0.1:8080) and see the demo running.
+[http://127.0.0.1:35511](http://127.0.0.1:35511) and see the demo running.
 
 ## Creating Plugins
 
