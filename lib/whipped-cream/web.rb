@@ -11,7 +11,6 @@ module WhippedCream
 
     private
 
-    # :nocov:
     def controls
       runner.plugin.controls
     end
@@ -47,6 +46,5 @@ module WhippedCream
 
       "<a href=\"http://#{address}:#{port}\">#{name}</a>"
     end
-    # :nocov:
   end
 end
