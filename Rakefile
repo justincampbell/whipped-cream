@@ -14,10 +14,6 @@ RSpec::Core::RakeTask.new do |rspec|
   rspec.rspec_opts = '--tag ~acceptance'
 end
 
-Cane::RakeTask.new do |cane|
-  cane.add_threshold 'coverage/.last_run.json', :>=, 90
-end
-
 desc "Test deploying the demo plugin to a Vagrant box"
 task :vagrant do
   [
