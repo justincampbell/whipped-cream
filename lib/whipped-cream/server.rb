@@ -1,5 +1,4 @@
 require 'rack'
-require 'dnssd'
 
 module WhippedCream
   # A server handles building a plugin/runner and starting a web server
@@ -25,6 +24,10 @@ module WhippedCream
 
     def web
       @web ||= Web
+    end
+
+    def discoverer
+      @discoverer ||= Discoverer.new
     end
 
     private
@@ -55,9 +58,7 @@ module WhippedCream
       domain = nil
       port = rack_options[:Port]
 
-      DNSSD.register(name, service, domain, port) do |reply|
-        raise "Unable to register web server" unless reply.flags.add?
-      end
+      discoverer.register_server(name, service, domain, port)
     end
 
     def build_routes
