@@ -9,7 +9,17 @@ describe WhippedCream::Runner do
     end
   }
 
-  its(:name) { should eq("Garage") }
+  describe '#name' do
+    subject { super().name }
+    it { is_expected.to eq("Garage") }
+  end
+
+  describe '.instance' do
+    subject { described_class.instance }
+    let!(:runner_instance) { described_class.create_instance(plugin) }
+
+    it { is_expected.to eq(runner_instance) }
+  end
 
   context "with a button" do
     let(:plugin) {
@@ -52,7 +62,7 @@ describe WhippedCream::Runner do
 
     it "defines a method that reads and converts the pin's value" do
       pin = runner.pins[:door]
-      pin.stub read: 1
+      allow(pin).to receive_messages read: 1
 
       expect(runner.door).to eq("Closed")
     end

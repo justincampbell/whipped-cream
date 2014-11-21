@@ -12,12 +12,19 @@ describe WhippedCream::Deployer do
   }
 
   before do
-    deployer.stub :scp_copy
-    deployer.stub :ssh_exec
+    allow(deployer).to receive :scp_copy
+    allow(deployer).to receive :ssh_exec
   end
 
-  its(:plugin_filename) { should eq(plugin_filename) }
-  its(:pi_address) { should eq(pi_address) }
+  describe '#plugin_filename' do
+    subject { super().plugin_filename }
+    it { is_expected.to eq(plugin_filename) }
+  end
+
+  describe '#pi_address' do
+    subject { super().pi_address }
+    it { is_expected.to eq(pi_address) }
+  end
 
   context "with a port" do
     let(:pi_address) { "192.168.0.123:2222" }

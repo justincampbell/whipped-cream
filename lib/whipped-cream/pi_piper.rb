@@ -27,8 +27,10 @@ module PiPiper
 
     private
 
+    # :nocov:  Private methods should not count against %test coverage
     def log(message)
       puts message unless ENV['RUBY_ENV'] == 'test'
     end
+    # :nocov:
   end
 end

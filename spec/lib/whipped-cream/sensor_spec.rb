@@ -15,16 +15,40 @@ describe WhippedCream::Sensor do
     }
     let(:block) { nil }
 
-    its(:name) { should eq(name) }
-    its(:id) { should eq(:door) }
+    describe '#name' do
+      subject { super().name }
+      it { is_expected.to eq(name) }
+    end
 
-    its(:pin) { should eq(17) }
+    describe '#id' do
+      subject { super().id }
+      it { is_expected.to eq(:door) }
+    end
 
-    its(:high) { should eq("Open") }
-    its(:low) { should eq("Closed") }
+    describe '#pin' do
+      subject { super().pin }
+      it { is_expected.to eq(17) }
+    end
 
-    its(:on_high) { should eq(:door_opened) }
-    its(:on_low) { should be_nil }
+    describe '#high' do
+      subject { super().high }
+      it { is_expected.to eq("Open") }
+    end
+
+    describe '#low' do
+      subject { super().low }
+      it { is_expected.to eq("Closed") }
+    end
+
+    describe '#on_high' do
+      subject { super().on_high }
+      it { is_expected.to eq(:door_opened) }
+    end
+
+    describe '#on_low' do
+      subject { super().on_low }
+      it { is_expected.to be_nil }
+    end
   end
 
   context 'invalid sensor' do

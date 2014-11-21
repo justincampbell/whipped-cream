@@ -37,6 +37,7 @@ module WhippedCream
 
     private
 
+    # :nocov:  Private methods should not count against %test coverage
     def bootstrap
       ssh_exec <<-SCRIPT
         if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
@@ -116,5 +117,6 @@ module WhippedCream
         end
       end.wait
     end
+    # :nocov:
   end
 end
