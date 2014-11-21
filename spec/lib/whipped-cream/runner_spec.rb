@@ -16,7 +16,9 @@ describe WhippedCream::Runner do
 
   describe '.instance' do
     subject { described_class.instance }
-    it { is_expected.to be_an_instance_of(WhippedCream::Runner) }
+    let!(:runner_instance) { described_class.create_instance(plugin) }
+
+    it { is_expected.to eq(runner_instance) }
   end
 
   context "with a button" do
