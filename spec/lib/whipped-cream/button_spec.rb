@@ -8,9 +8,20 @@ describe WhippedCream::Button do
     let(:valid_pin) { 4 }
     let(:block) { nil }
 
-    its(:name) { should eq(name) }
-    its(:id) { should eq(:open_close) }
-    its(:type) { should eq(:button) }
+    describe '#name' do
+      subject { super().name }
+      it { is_expected.to eq(name) }
+    end
+
+    describe '#id' do
+      subject { super().id }
+      it { is_expected.to eq(:open_close) }
+    end
+
+    describe '#type' do
+      subject { super().type }
+      it { is_expected.to eq(:button) }
+    end
   end
 
   context 'invalid button' do

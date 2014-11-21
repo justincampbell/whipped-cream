@@ -29,6 +29,7 @@ module WhippedCream
 
     private
 
+    # :nocov:  Private methods should not count against %test coverage
     def ensure_runner_started
       runner
     end
@@ -82,5 +83,6 @@ module WhippedCream
         end
       end
     end
+    # :nocov:
   end
 end

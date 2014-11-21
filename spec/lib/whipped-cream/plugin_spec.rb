@@ -3,20 +3,49 @@ require 'spec_helper'
 describe WhippedCream::Plugin do
   subject(:plugin) { described_class.new }
 
-  its(:camera) { should be_nil }
-  its(:name) { should be_nil }
+  describe '#camera' do
+    subject { super().camera }
+    it { is_expected.to be_nil }
+  end
 
-  its(:controls) { should be_empty }
+  describe '#name' do
+    subject { super().name }
+    it { is_expected.to be_nil }
+  end
 
-  its(:buttons) { should be_empty }
-  its(:fields) { should be_empty }
-  its(:sensors) { should be_empty }
-  its(:switches) { should be_empty }
+  describe '#controls' do
+    subject { super().controls }
+    it { is_expected.to be_empty }
+  end
+
+  describe '#buttons' do
+    subject { super().buttons }
+    it { is_expected.to be_empty }
+  end
+
+  describe '#fields' do
+    subject { super().fields }
+    it { is_expected.to be_empty }
+  end
+
+  describe '#sensors' do
+    subject { super().sensors }
+    it { is_expected.to be_empty }
+  end
+
+  describe '#switches' do
+    subject { super().switches }
+    it { is_expected.to be_empty }
+  end
 
   describe ".build" do
     it "delegates to Builder" do
-      block = -> {}
-      expect(WhippedCream::Builder).to receive(:build).with(&block)
+      double = double('block')
+      block = -> { double.run }
+
+      expect(WhippedCream::Builder).to receive(:build).with(no_args).and_yield
+      expect(double).to receive(:run)
+
       described_class.build(&block)
     end
   end
@@ -42,7 +71,14 @@ describe WhippedCream::Plugin do
       plugin.controls << WhippedCream::Button.new("Open/Close", pin: 4)
     end
 
-    its(:controls) { should_not be_empty }
-    its(:buttons) { should_not be_empty }
+    describe '#controls' do
+      subject { super().controls }
+      it { is_expected.not_to be_empty }
+    end
+
+    describe '#buttons' do
+      subject { super().buttons }
+      it { is_expected.not_to be_empty }
+    end
   end
 end

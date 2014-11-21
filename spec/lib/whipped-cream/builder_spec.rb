@@ -18,7 +18,7 @@ describe WhippedCream::Builder do
   }
 
   it "returns a plugin" do
-    should be_a(WhippedCream::Plugin)
+    is_expected.to be_a(WhippedCream::Plugin)
   end
 
   context "with helper methods" do
@@ -39,7 +39,7 @@ describe WhippedCream::Builder do
 
   describe ".from_file" do
     before do
-      File.stub read: plugin_string
+      allow(File).to receive_messages read: plugin_string
     end
 
     it "reads the file" do
@@ -68,7 +68,7 @@ describe WhippedCream::Builder do
   describe "#camera" do
     subject { plugin.camera }
 
-    it { should be_false }
+    it { is_expected.to be_falsey }
 
     context "with camera in the plugin" do
       let(:plugin) {
@@ -77,14 +77,14 @@ describe WhippedCream::Builder do
         end
       }
 
-      it { should be_true }
+      it { is_expected.to be_truthy }
     end
   end
 
   describe "#button" do
     subject { plugin.buttons }
 
-    it { should be_empty }
+    it { is_expected.to be_empty }
 
     context "with a button" do
       let(:plugin) {
@@ -96,7 +96,7 @@ describe WhippedCream::Builder do
       }
 
       it "adds a button" do
-        expect(plugin.buttons).to have(1).item
+        expect(plugin.buttons.size).to eq(1)
 
         button = plugin.buttons.first
 
@@ -109,7 +109,7 @@ describe WhippedCream::Builder do
   describe "#sensor(s)" do
     subject { plugin.sensors }
 
-    it { should be_empty }
+    it { is_expected.to be_empty }
 
     context "with a sensor" do
       let(:plugin) {
@@ -123,7 +123,7 @@ describe WhippedCream::Builder do
       }
 
       it "adds a sensor" do
-        expect(plugin.sensors).to have(1).item
+        expect(plugin.sensors.size).to eq(1)
 
         sensor = plugin.sensors.first
 
@@ -140,7 +140,7 @@ describe WhippedCream::Builder do
   describe "#switch" do
     subject { plugin.switches }
 
-    it { should be_empty }
+    it { is_expected.to be_empty }
 
     context "with a switch" do
       let(:plugin) {
@@ -150,7 +150,7 @@ describe WhippedCream::Builder do
       }
 
       it "adds a switch" do
-        expect(plugin.switches).to have(1).item
+        expect(plugin.switches.size).to eq(1)
 
         switch = plugin.switches.first
 
