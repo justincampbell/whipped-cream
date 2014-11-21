@@ -7,10 +7,25 @@ describe WhippedCream::Switch do
     let(:name) { "Light" }
     let(:valid_pin) { 18 }
 
-    its(:name) { should eq(name) }
-    its(:id) { should eq(:light) }
-    its(:type) { should eq(:switch) }
-    its(:pin) { should eq(18) }
+    describe '#name' do
+      subject { super().name }
+      it { is_expected.to eq(name) }
+    end
+
+    describe '#id' do
+      subject { super().id }
+      it { is_expected.to eq(:light) }
+    end
+
+    describe '#type' do
+      subject { super().type }
+      it { is_expected.to eq(:switch) }
+    end
+
+    describe '#pin' do
+      subject { super().pin }
+      it { is_expected.to eq(18) }
+    end
   end
 
   context 'invalid switch' do
