@@ -37,6 +37,7 @@ module WhippedCream
 
     private
 
+    # :nocov:  Private methods should not count against %test coverage
     def configure
       configure_buttons
       configure_sensors
@@ -111,5 +112,6 @@ module WhippedCream
 
       pin.send(state)
     end
+    # :nocov:
   end
 end

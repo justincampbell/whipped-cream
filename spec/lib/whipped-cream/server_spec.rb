@@ -12,11 +12,11 @@ describe WhippedCream::Server do
   let(:options) { Hash.new }
 
   before do
-    Rack::Server.stub :start
+    allow(Rack::Server).to receive :start
   end
 
   it "creates a runner with the plugin" do
-    server.runner.stub :sleep
+    allow(server.runner).to receive :sleep
 
     server.runner.open_close
   end
@@ -37,7 +37,7 @@ describe WhippedCream::Server do
     it "creates a button route" do
       expect(server.web.routes['POST'].find { |route|
           route.first.match('/open_close')
-      }).to be_true
+      }).to be_truthy
     end
   end
 
@@ -53,7 +53,7 @@ describe WhippedCream::Server do
     it "creates a switch route" do
       expect(server.web.routes['POST'].find { |route|
         route.first.match('/light')
-      }).to be_true
+      }).to be_truthy
     end
   end
 
