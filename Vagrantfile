@@ -1,6 +1,5 @@
 Vagrant.configure('2') do |config|
-  config.vm.box = 'debian-wheezy'
-  config.vm.box_url = 'https://dl.dropboxusercontent.com/u/86066173/debian-wheezy.box'
+  config.vm.box = 'nfq/wheezy'
 
   {
     35511 => 35511
