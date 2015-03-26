@@ -14,6 +14,8 @@ RSpec::Core::RakeTask.new do |rspec|
   rspec.rspec_opts = '--tag ~acceptance'
 end
 
+Cane::RakeTask.new
+
 desc "Test deploying the demo plugin to a Vagrant box"
 task :vagrant do
   [
