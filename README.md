@@ -2,6 +2,7 @@
 
 > HTTP topping for [Raspberry Pi](http://www.raspberrypi.org)
 > [![Gem Version](https://badge.fury.io/rb/whipped-cream.png)](http://badge.fury.io/rb/whipped-cream)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fjustincampbell%2Fwhipped-cream.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fjustincampbell%2Fwhipped-cream?ref=badge_shield)
 > [![Build Status](https://travis-ci.org/justincampbell/whipped-cream.png?branch=master)](https://travis-ci.org/justincampbell/whipped-cream)
 > [![Code Climate](https://codeclimate.com/github/justincampbell/whipped-cream.png)](https://codeclimate.com/github/justincampbell/whipped-cream)
 
@@ -171,3 +172,7 @@ end
 Web UI designed by [Ashton Harris](http://ashtonharris.me).
 
 Logo designed by [Jeff Bloch](http://www.redbubble.com/people/jabbtees).
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fjustincampbell%2Fwhipped-cream.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fjustincampbell%2Fwhipped-cream?ref=badge_large)
